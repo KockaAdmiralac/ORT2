@@ -2132,8 +2132,15 @@
       <a name="incoming" val="4"/>
     </comp>
     <comp lib="0" loc="(170,420)" name="Splitter">
-      <a name="fanout" val="4"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="fanout" val="1"/>
       <a name="incoming" val="4"/>
+    </comp>
+    <comp lib="0" loc="(190,410)" name="Tunnel">
+      <a name="label" val="ADDR"/>
     </comp>
     <comp lib="0" loc="(200,620)" name="Pin">
       <a name="label" val="INSTRUCBUS"/>
