@@ -11,7 +11,7 @@ if len(sys.argv) < 2:
 step_regex = re.compile(r'^\s*step\s*([0-9A-Fa-f]+)\s*=>\s*(.*)$')
 case_regex = re.compile(r'^br\s*\(\s*case\s*\(')
 if_regex = re.compile(r'^br\s*\(if\s*([^\s]+) then\s*step\s*([0-9A-Fa-f]+)\s*\)$')
-uncond_regex = re.compile(r'^br\s*(.*)$')
+uncond_regex = re.compile(r'^br\s*step\s*([0-9A-Fa-f]+)$')
 signals = {}
 cc = [None, 'uncnd']
 
@@ -51,6 +51,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as mic_file:
         step_number = int(step_match.group(1), 16)
         if step_number != len(lines):
             print('Koraci ne idu po redosledu na liniji:', stripped_line)
+            exit(1)
         split_line = split_before_bracket(step_match.group(2))
         for i in range(0, len(split_line)-1):
             stripped_signal = split_line[i].strip()
@@ -70,7 +71,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as mic_file:
         elif if_match is not None:
             # br (if cc then)
             signal = if_match.group(1)
-            line_ba = int(step_match.group(1), 16)
+            line_ba = int(if_match.group(2), 16)
             if signal in cc:
                 line_cc = cc.index(signal)
             else:
@@ -79,6 +80,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as mic_file:
         elif uncond_match is not None:
             # br stepXX
             line_cc = 1
+            line_ba = int(uncond_match.group(1), 16)
         else:
             # Ovo je bio samo običan signal na kraju linije
             signals[br] = True
