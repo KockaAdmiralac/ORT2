@@ -1,9 +1,9 @@
 step00 => br (if notADDR then step00)
 ! Skok na određeno adresiranje !
-step01 => br (case(immed, memdir, memind, regindpom, postincr, postdec, regdir)) then (immed, step02), (memdir, step04), (memind, step05), (regind, step0A), (postincr, step0B), (postdec, step0C)
+step01 => br (case(immed, memdir, memind, regind, postincr, postdec, regdir)) then (immed, step02), (memdir, step04), (memind, step05), (regind, step0A), (postincr, step0B), (postdec, step0C), (regdir, step12)
 ! immed !
-step02 => br (if ST then stepEXEC)
-step03 => ldB, br stepEXEC
+step02 => br (if ST then step14)
+step03 => ldB, br step14
 ! memdir !
 step04 => ldMAR, mxMAR0, br step0D
 ! memind !
@@ -17,12 +17,15 @@ step0A => ldMAR, mxMAR2, br step0D
 ! postincr !
 step0B => ldMAR, mxMAR2, wrGPR, br step0D
 ! postdec !
-step0C => ldMAR, mxMAR2, wrGPR, mxGPRIN0, br step0D
+step0C => ldMAR, mxMAR2, wrGPR, mxGPRIN0
 ! Čitanje podatka na adresi iz memorije !
-step0D => br (if ST then stepEXEC)
+step0D => br (if ST then step14)
 step0E => rdMEM, ldMDR, br (if notFCBUS then step0E)
 step0F => ldB, mxB0
 step10 => rdMEM, ldMDR, br (if notFCBUS then step10)
-step11 => ldB, mxB1, br stepEXEC
+step11 => ldB, mxB1, br step14
+! regdir !
+step12 => br (if ST then step14)
+step13 => ldB, mxB0, mxB1
 ! Prelazak na EXEC !
-step12 => clADDR, stEXEC
+step14 => clADDR, stEXEC, br step00
