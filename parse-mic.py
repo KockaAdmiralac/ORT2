@@ -104,13 +104,13 @@ for index, code in enumerate(cc):
 print('=================== Mikrokod ========================')
 for curr_signals, cc, ba in lines:
     line_bin = ''
-    for signal in signals.keys():
+    line_bin += format_binary(ba, ba_width)
+    line_bin += format_binary(cc, cc_width)
+    for signal in reversed(signals.keys()):
         if signal in curr_signals:
             line_bin += '1'
         else:
             line_bin += '0'
-    line_bin += format_binary(cc, cc_width)
-    line_bin += format_binary(ba, ba_width)
     # print(line_bin)
     print(hex(int(line_bin, 2)).split('x')[1].upper())
     # print(curr_signals, cc, ba)
