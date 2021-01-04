@@ -1,0 +1,25 @@
+step00 => br (if notpswSTARTandFETCH then step00)
+! Prvi bajt IR !
+step01 => incPC, ldMAR
+step02 => rdMEM, ldMDR, br (if notFCBUS then step02)
+step03 => ldIR[31_24]
+step04 => br (if grinst then step00)
+step05 => br (if bezadr then step12)
+! Drugi bajt IR !
+step06 => incPC, ldMAR
+step07 => rdMEM, ldMDR, br (if notFCBUS then step07)
+step08 => ldIR[23_16], br (if jmp2 then step12)
+step09 => br (if graddr then step00)
+step0A => br (if addr2 then step11)
+! Treći bajt IR !
+step0B => incPC, ldMAR
+step0C => rdMEM, ldMDR, br (if notFCBUS then step0C)
+step0D => ldIR[15_8], br (if jmp3 then step12)
+! Četvrti bajt IR !
+step0E => incPC, ldMAR
+step0F => rdMEM, ldMDR, br (if notFCBUS then step0F)
+step10 => ldIR[7_0]
+! ID !
+step11 => rsFETCH, stADDR, br step00
+! EX !
+step12 => rsFETCH, stEXEC, br step00
