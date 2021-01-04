@@ -3,11 +3,20 @@
   This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
 
   <lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="west"/>
+    </tool>
     <tool name="Pin">
       <a name="appearance" val="NewPins"/>
     </tool>
     <tool name="Probe">
       <a name="appearance" val="NewPins"/>
+    </tool>
+    <tool name="Tunnel">
+      <a name="facing" val="east"/>
+    </tool>
+    <tool name="Constant">
+      <a name="value" val="0x0"/>
     </tool>
   </lib>
   <lib desc="#Gates" name="1">
@@ -111,28 +120,31 @@
     <a name="clabelfont" val="SansSerif plain 12"/>
     <a name="clabelup" val="east"/>
     <appear>
-      <circ-anchor facing="east" height="6" width="6" x="127" y="77"/>
-      <circ-port height="10" pin="330,250" width="10" x="85" y="95"/>
+      <circ-anchor facing="east" height="6" width="6" x="177" y="67"/>
+      <circ-port height="10" pin="330,250" width="10" x="175" y="95"/>
       <circ-port height="8" pin="140,80" width="8" x="116" y="46"/>
       <circ-port height="8" pin="210,80" width="8" x="146" y="46"/>
       <circ-port height="8" pin="300,80" width="8" x="176" y="46"/>
-      <circ-port height="8" pin="390,80" width="8" x="186" y="46"/>
-      <circ-port height="8" pin="470,80" width="8" x="196" y="46"/>
-      <circ-port height="8" pin="540,80" width="8" x="206" y="46"/>
+      <circ-port height="8" pin="390,80" width="8" x="206" y="46"/>
+      <circ-port height="8" pin="470,80" width="8" x="236" y="46"/>
+      <circ-port height="8" pin="540,80" width="8" x="266" y="46"/>
       <circ-port height="8" pin="70,80" width="8" x="86" y="46"/>
-      <rect fill="#ffffff" height="50" stroke="#000000" stroke-width="2" width="113" x="79" y="50"/>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="10" text-anchor="middle" x="132" y="92">Adr</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" font-weight="bold" text-anchor="middle" x="134" y="79">KMADR</text>
+      <rect fill="#ffffff" height="50" stroke="#000000" stroke-width="2" width="201" x="79" y="50"/>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="10" text-anchor="middle" x="177" y="91">Adr</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" font-weight="bold" text-anchor="middle" x="184" y="75">KMADR</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="122" y="61">memdir</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="146" y="95">3..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="151" y="61">regdir</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="176" y="61">regipom</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="153" y="61">memind</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="182" y="61">regind</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="191" y="94">4..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="211" y="61">postincr</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="241" y="61">postdec</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="268" y="61">regdir</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="94" y="61">immed</text>
     </appear>
     <comp lib="0" loc="(100,110)" name="Constant">
       <a name="facing" val="south"/>
       <a name="value" val="0x2"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(140,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -141,7 +153,7 @@
     <comp lib="0" loc="(170,110)" name="Constant">
       <a name="facing" val="south"/>
       <a name="value" val="0x4"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(210,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -150,22 +162,22 @@
     <comp lib="0" loc="(240,110)" name="Constant">
       <a name="facing" val="south"/>
       <a name="value" val="0x5"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(300,80)" name="Pin">
       <a name="facing" val="south"/>
-      <a name="label" val="regindpom"/>
+      <a name="label" val="regind"/>
     </comp>
     <comp lib="0" loc="(330,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x7"/>
-      <a name="width" val="4"/>
+      <a name="value" val="0xa"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(330,250)" name="Pin">
       <a name="facing" val="north"/>
       <a name="label" val="Adr"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(390,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -173,8 +185,8 @@
     </comp>
     <comp lib="0" loc="(420,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x7"/>
-      <a name="width" val="4"/>
+      <a name="value" val="0xb"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(470,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -182,8 +194,8 @@
     </comp>
     <comp lib="0" loc="(500,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x7"/>
-      <a name="width" val="4"/>
+      <a name="value" val="0xc"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(540,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -191,8 +203,8 @@
     </comp>
     <comp lib="0" loc="(570,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x7"/>
-      <a name="width" val="4"/>
+      <a name="value" val="0x12"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(70,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -200,31 +212,31 @@
     </comp>
     <comp lib="1" loc="(100,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="1" loc="(170,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="1" loc="(240,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="1" loc="(330,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="1" loc="(420,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="1" loc="(500,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="1" loc="(570,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <wire from="(100,110)" to="(100,140)"/>
     <wire from="(100,160)" to="(100,200)"/>
