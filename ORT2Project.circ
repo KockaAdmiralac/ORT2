@@ -27,7 +27,6 @@
   <lib desc="#Plexers" name="2">
     <tool name="Multiplexer">
       <a name="enable" val="false"/>
-      <a name="facing" val="south"/>
     </tool>
     <tool name="Demultiplexer">
       <a name="enable" val="false"/>
@@ -386,17 +385,17 @@
     <comp lib="0" loc="(180,350)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="A"/>
-      <a name="width" val="8"/>
+      <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(180,370)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="B"/>
-      <a name="width" val="8"/>
+      <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(180,390)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="ALU"/>
-      <a name="width" val="8"/>
+      <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(190,180)" name="Tunnel">
       <a name="label" val="intr3_0"/>
@@ -413,15 +412,6 @@
     <comp lib="0" loc="(580,130)" name="Pull Resistor"/>
     <comp lib="0" loc="(600,130)" name="Pull Resistor"/>
     <comp lib="0" loc="(620,130)" name="Pull Resistor"/>
-    <comp lib="0" loc="(970,1000)" name="Tunnel">
-      <a name="label" val="WR"/>
-    </comp>
-    <comp lib="0" loc="(970,1020)" name="Tunnel">
-      <a name="label" val="RD"/>
-    </comp>
-    <comp lib="0" loc="(970,1040)" name="Tunnel">
-      <a name="label" val="FCBUS"/>
-    </comp>
     <comp lib="0" loc="(970,230)" name="Tunnel">
       <a name="label" val="rst"/>
     </comp>
@@ -449,62 +439,6 @@
     </comp>
     <comp lib="0" loc="(970,600)" name="Tunnel">
       <a name="label" val="FCBUS"/>
-    </comp>
-    <comp lib="0" loc="(970,640)" name="Tunnel">
-      <a name="label" val="rst"/>
-    </comp>
-    <comp lib="0" loc="(970,660)" name="Tunnel">
-      <a name="label" val="CLK"/>
-    </comp>
-    <comp lib="0" loc="(970,680)" name="Tunnel">
-      <a name="label" val="B"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(970,700)" name="Tunnel">
-      <a name="label" val="PSW"/>
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(970,720)" name="Tunnel">
-      <a name="label" val="A"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(970,740)" name="Tunnel">
-      <a name="label" val="ALU"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(970,770)" name="Tunnel">
-      <a name="label" val="WR"/>
-    </comp>
-    <comp lib="0" loc="(970,790)" name="Tunnel">
-      <a name="label" val="RD"/>
-    </comp>
-    <comp lib="0" loc="(970,810)" name="Tunnel">
-      <a name="label" val="FCBUS"/>
-    </comp>
-    <comp lib="0" loc="(970,850)" name="Tunnel">
-      <a name="label" val="rst"/>
-    </comp>
-    <comp lib="0" loc="(970,870)" name="Tunnel">
-      <a name="label" val="CLK"/>
-    </comp>
-    <comp lib="0" loc="(970,890)" name="Tunnel">
-      <a name="label" val="intr3_0"/>
-      <a name="width" val="4"/>
-    </comp>
-    <comp lib="0" loc="(970,910)" name="Tunnel">
-      <a name="label" val="PSW"/>
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(970,930)" name="Tunnel">
-      <a name="label" val="INTRADDR"/>
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(970,960)" name="Tunnel">
-      <a name="label" val="UEXT"/>
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(970,980)" name="Tunnel">
-      <a name="label" val="inta"/>
     </comp>
     <comp loc="(300,330)" name="COMMON"/>
     <comp loc="(840,290)" name="FETCH"/>
@@ -547,64 +481,25 @@
     <wire from="(420,350)" to="(440,350)"/>
     <wire from="(420,370)" to="(500,370)"/>
     <wire from="(500,130)" to="(500,370)"/>
-    <wire from="(500,370)" to="(500,760)"/>
-    <wire from="(500,760)" to="(500,1030)"/>
-    <wire from="(500,760)" to="(750,760)"/>
+    <wire from="(500,370)" to="(500,1030)"/>
     <wire from="(520,130)" to="(520,230)"/>
-    <wire from="(520,230)" to="(520,430)"/>
+    <wire from="(520,230)" to="(520,1030)"/>
     <wire from="(520,230)" to="(750,230)"/>
-    <wire from="(520,430)" to="(520,640)"/>
-    <wire from="(520,430)" to="(750,430)"/>
-    <wire from="(520,640)" to="(520,850)"/>
-    <wire from="(520,640)" to="(750,640)"/>
-    <wire from="(520,850)" to="(520,1030)"/>
-    <wire from="(520,850)" to="(750,850)"/>
     <wire from="(540,130)" to="(540,250)"/>
-    <wire from="(540,250)" to="(540,450)"/>
+    <wire from="(540,250)" to="(540,1030)"/>
     <wire from="(540,250)" to="(750,250)"/>
-    <wire from="(540,450)" to="(540,660)"/>
-    <wire from="(540,450)" to="(750,450)"/>
-    <wire from="(540,660)" to="(540,870)"/>
-    <wire from="(540,660)" to="(750,660)"/>
-    <wire from="(540,870)" to="(540,1030)"/>
-    <wire from="(540,870)" to="(750,870)"/>
     <wire from="(560,130)" to="(560,270)"/>
-    <wire from="(560,270)" to="(560,470)"/>
+    <wire from="(560,270)" to="(560,1030)"/>
     <wire from="(560,270)" to="(750,270)"/>
-    <wire from="(560,470)" to="(560,680)"/>
-    <wire from="(560,470)" to="(750,470)"/>
-    <wire from="(560,680)" to="(560,1030)"/>
-    <wire from="(560,680)" to="(750,680)"/>
     <wire from="(580,130)" to="(580,290)"/>
-    <wire from="(580,290)" to="(580,490)"/>
+    <wire from="(580,290)" to="(580,1030)"/>
     <wire from="(580,290)" to="(750,290)"/>
-    <wire from="(580,490)" to="(580,700)"/>
-    <wire from="(580,490)" to="(750,490)"/>
-    <wire from="(580,700)" to="(580,910)"/>
-    <wire from="(580,700)" to="(750,700)"/>
-    <wire from="(580,910)" to="(580,1030)"/>
-    <wire from="(580,910)" to="(750,910)"/>
     <wire from="(600,130)" to="(600,310)"/>
-    <wire from="(600,310)" to="(600,510)"/>
+    <wire from="(600,310)" to="(600,1030)"/>
     <wire from="(600,310)" to="(750,310)"/>
-    <wire from="(600,510)" to="(600,720)"/>
-    <wire from="(600,510)" to="(750,510)"/>
-    <wire from="(600,720)" to="(600,930)"/>
-    <wire from="(600,720)" to="(750,720)"/>
-    <wire from="(600,930)" to="(600,1030)"/>
-    <wire from="(600,930)" to="(750,930)"/>
     <wire from="(620,130)" to="(620,330)"/>
-    <wire from="(620,330)" to="(620,530)"/>
+    <wire from="(620,330)" to="(620,1030)"/>
     <wire from="(620,330)" to="(750,330)"/>
-    <wire from="(620,530)" to="(620,740)"/>
-    <wire from="(620,530)" to="(750,530)"/>
-    <wire from="(620,740)" to="(620,950)"/>
-    <wire from="(620,740)" to="(750,740)"/>
-    <wire from="(620,950)" to="(620,1030)"/>
-    <wire from="(620,950)" to="(750,950)"/>
-    <wire from="(940,1000)" to="(970,1000)"/>
-    <wire from="(940,1020)" to="(970,1020)"/>
-    <wire from="(940,1040)" to="(970,1040)"/>
     <wire from="(940,230)" to="(970,230)"/>
     <wire from="(940,250)" to="(970,250)"/>
     <wire from="(940,270)" to="(970,270)"/>
@@ -614,22 +509,6 @@
     <wire from="(940,450)" to="(970,450)"/>
     <wire from="(940,580)" to="(970,580)"/>
     <wire from="(940,600)" to="(970,600)"/>
-    <wire from="(940,640)" to="(970,640)"/>
-    <wire from="(940,660)" to="(970,660)"/>
-    <wire from="(940,680)" to="(970,680)"/>
-    <wire from="(940,700)" to="(970,700)"/>
-    <wire from="(940,720)" to="(970,720)"/>
-    <wire from="(940,740)" to="(970,740)"/>
-    <wire from="(940,770)" to="(970,770)"/>
-    <wire from="(940,790)" to="(970,790)"/>
-    <wire from="(940,810)" to="(970,810)"/>
-    <wire from="(940,850)" to="(970,850)"/>
-    <wire from="(940,870)" to="(970,870)"/>
-    <wire from="(940,890)" to="(970,890)"/>
-    <wire from="(940,910)" to="(970,910)"/>
-    <wire from="(940,930)" to="(970,930)"/>
-    <wire from="(940,960)" to="(970,960)"/>
-    <wire from="(940,980)" to="(970,980)"/>
   </circuit>
   <circuit name="COMMON">
     <a name="appearance" val="custom"/>
@@ -649,15 +528,15 @@
       <circ-port height="10" pin="2810,790" width="10" x="145" y="275"/>
       <circ-port height="10" pin="3340,140" width="10" x="355" y="155"/>
       <circ-port height="8" pin="170,110" width="8" x="356" y="256"/>
-      <circ-port height="8" pin="170,140" width="8" x="146" y="256"/>
-      <circ-port height="8" pin="170,170" width="8" x="146" y="296"/>
-      <circ-port height="8" pin="170,210" width="8" x="146" y="236"/>
-      <circ-port height="8" pin="170,50" width="8" x="146" y="156"/>
-      <circ-port height="8" pin="170,80" width="8" x="146" y="136"/>
+      <circ-port height="8" pin="170,160" width="8" x="146" y="236"/>
+      <circ-port height="8" pin="170,30" width="8" x="146" y="156"/>
+      <circ-port height="8" pin="170,60" width="8" x="146" y="136"/>
       <circ-port height="8" pin="190,580" width="8" x="356" y="196"/>
       <circ-port height="8" pin="200,1030" width="8" x="356" y="236"/>
       <circ-port height="8" pin="200,1380" width="8" x="356" y="276"/>
       <circ-port height="8" pin="200,830" width="8" x="356" y="216"/>
+      <circ-port height="8" pin="430,110" width="8" x="146" y="256"/>
+      <circ-port height="8" pin="430,160" width="8" x="146" y="296"/>
       <rect fill="#ffffff" height="223" stroke="#000000" stroke-width="2" width="210" x="150" y="128"/>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="166" y="264">inA</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="169" y="284">outB</text>
@@ -667,13 +546,13 @@
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="179" y="204">outMDR</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="180" y="184">outMAR</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="180" y="225">outPSW</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="187" y="269">7..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="187" y="269">15..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="192" y="245">inINTRADDR</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="192" y="290">7..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="199" y="308">7..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="212" y="230">7..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="192" y="290">15..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="199" y="308">15..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="212" y="230">15..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="213" y="191">15..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="214" y="210">15..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="214" y="210">7..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="237" y="251">15..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="287" y="167">INSTRUCBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="292" y="146">PHASEFFBUS</text>
@@ -683,11 +562,11 @@
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="307" y="223">CFFBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="312" y="283">CPSW</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="320" y="264">DIN</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="339" y="171">10..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="341" y="209">14..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="339" y="171">20..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="341" y="209">15..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="342" y="268">7..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="343" y="151">3..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="343" y="191">3..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="343" y="191">7..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="343" y="228">7..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="343" y="250">8..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="343" y="286">5..0</text>
@@ -1009,22 +888,14 @@
       <a name="label" val="DIN"/>
       <a name="width" val="8"/>
     </comp>
-    <comp lib="0" loc="(170,140)" name="Pin">
-      <a name="label" val="A"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(170,170)" name="Pin">
-      <a name="label" val="ALU"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(170,210)" name="Pin">
+    <comp lib="0" loc="(170,160)" name="Pin">
       <a name="label" val="IVTPPDSP"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="0" loc="(170,50)" name="Pin">
+    <comp lib="0" loc="(170,30)" name="Pin">
       <a name="label" val="CLK"/>
     </comp>
-    <comp lib="0" loc="(170,80)" name="Pin">
+    <comp lib="0" loc="(170,60)" name="Pin">
       <a name="label" val="RST"/>
     </comp>
     <comp lib="0" loc="(1730,220)" name="Tunnel">
@@ -1105,22 +976,14 @@
       <a name="label" val="CPSW"/>
       <a name="width" val="6"/>
     </comp>
-    <comp lib="0" loc="(200,140)" name="Tunnel">
-      <a name="label" val="A"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(200,170)" name="Tunnel">
-      <a name="label" val="ALU"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(200,210)" name="Tunnel">
+    <comp lib="0" loc="(200,160)" name="Tunnel">
       <a name="label" val="ENTRADDR"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="0" loc="(200,50)" name="Tunnel">
+    <comp lib="0" loc="(200,30)" name="Tunnel">
       <a name="label" val="CLK"/>
     </comp>
-    <comp lib="0" loc="(200,80)" name="Tunnel">
+    <comp lib="0" loc="(200,60)" name="Tunnel">
       <a name="label" val="rst"/>
     </comp>
     <comp lib="0" loc="(200,830)" name="Pin">
@@ -1739,6 +1602,22 @@
       <a name="output" val="true"/>
       <a name="width" val="21"/>
     </comp>
+    <comp lib="0" loc="(430,110)" name="Pin">
+      <a name="label" val="A"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(430,160)" name="Pin">
+      <a name="label" val="ALU"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(460,110)" name="Tunnel">
+      <a name="label" val="A"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(460,160)" name="Tunnel">
+      <a name="label" val="ALU"/>
+      <a name="width" val="16"/>
+    </comp>
     <comp lib="0" loc="(750,100)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="MDR"/>
@@ -2261,11 +2140,9 @@
     <wire from="(1650,850)" to="(1650,860)"/>
     <wire from="(1650,850)" to="(1660,850)"/>
     <wire from="(170,110)" to="(200,110)"/>
-    <wire from="(170,140)" to="(200,140)"/>
-    <wire from="(170,170)" to="(200,170)"/>
-    <wire from="(170,210)" to="(200,210)"/>
-    <wire from="(170,50)" to="(200,50)"/>
-    <wire from="(170,80)" to="(200,80)"/>
+    <wire from="(170,160)" to="(200,160)"/>
+    <wire from="(170,30)" to="(200,30)"/>
+    <wire from="(170,60)" to="(200,60)"/>
     <wire from="(1760,270)" to="(1760,280)"/>
     <wire from="(1770,1080)" to="(1770,2030)"/>
     <wire from="(1770,460)" to="(1770,1060)"/>
@@ -2344,6 +2221,8 @@
     <wire from="(2810,1430)" to="(2810,1540)"/>
     <wire from="(3110,1270)" to="(3110,2030)"/>
     <wire from="(3320,140)" to="(3340,140)"/>
+    <wire from="(430,110)" to="(460,110)"/>
+    <wire from="(430,160)" to="(460,160)"/>
     <wire from="(640,1060)" to="(1320,1060)"/>
     <wire from="(640,1080)" to="(1770,1080)"/>
     <wire from="(640,1080)" to="(640,2030)"/>
@@ -2475,10 +2354,10 @@
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="106" y="85">INSTRUCBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="109" y="65">PHASEFFBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="128" y="148">7..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="137" y="108">3..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="137" y="108">7..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="139" y="168">8..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="142" y="128">14..0</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="157" y="90">10..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="142" y="128">15..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="157" y="90">20..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="159" y="69">3..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="199" y="102">inPSW</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="218" y="203">RDMEM</text>
