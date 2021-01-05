@@ -3347,16 +3347,16 @@
     <a name="clabelup" val="east"/>
     <appear>
       <circ-anchor facing="east" height="6" width="6" x="197" y="167"/>
-      <circ-port height="10" pin="1730,940" width="10" x="295" y="275"/>
-      <circ-port height="10" pin="1760,510" width="10" x="295" y="255"/>
-      <circ-port height="10" pin="1760,680" width="10" x="295" y="265"/>
-      <circ-port height="10" pin="1780,110" width="10" x="295" y="285"/>
-      <circ-port height="8" pin="210,1170" width="8" x="106" y="146"/>
+      <circ-port height="10" pin="1730,940" width="10" x="295" y="225"/>
+      <circ-port height="10" pin="1760,510" width="10" x="105" y="165"/>
+      <circ-port height="10" pin="1760,680" width="10" x="105" y="185"/>
+      <circ-port height="10" pin="1780,110" width="10" x="105" y="145"/>
+      <circ-port height="8" pin="210,1170" width="8" x="106" y="106"/>
       <circ-port height="8" pin="210,240" width="8" x="296" y="76"/>
       <circ-port height="8" pin="210,270" width="8" x="296" y="96"/>
       <circ-port height="8" pin="210,300" width="8" x="296" y="246"/>
-      <circ-port height="8" pin="210,420" width="8" x="106" y="76"/>
-      <circ-port height="8" pin="230,690" width="8" x="106" y="86"/>
+      <circ-port height="8" pin="210,420" width="8" x="106" y="86"/>
+      <circ-port height="8" pin="230,690" width="8" x="106" y="126"/>
       <rect fill="#ffffff" height="191" stroke="#000000" stroke-width="2" width="190" x="110" y="69"/>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="141" y="164">CFFBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="145" y="184">CREGBUS</text>
