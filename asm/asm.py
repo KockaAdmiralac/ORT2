@@ -6,13 +6,14 @@ import re
 parser = ArgumentParser(description='Asembler za arhitekturu procesora iz projektnog zadatka 47 sa Osnova računarske tehnike 2 za godinu 2021.')
 parser.add_argument('asm_file', type=str, help='datoteka sa izvornim asemblerskim kodom')
 parser.add_argument('--binary', help='ispis instrukcija u binarnim ciframa', action='store_true')
+parser.add_argument('--iv', help='generisanje sadržaja IV tabele na osnovu labela intrX', action='store_true')
 parser.add_argument('--pretty', help='štampa novi red na kraju instrukcije', action='store_true')
 parser.add_argument('--v3hex', help='štampa u v3.0 hex words addressed formatu, za Logisim', action='store_true')
 args = parser.parse_args()
 
 # (     0         1               2               3         4          5         6         7     )
 # (Instruction, Indir1, Flags(R, #, +, -), Base1(0b, 0x), Number, Base2(b, h), Indir2, Post(+, -))
-line_regex = re.compile(r'^\s*(?:([a-zA-z]+)\s*:)?\s*(HALT|RTS|RTI|ROR|ROTR|RORC|ROTRC|PUSH|POP|BLEQ|BGREU|BNNG|BGRT|JLEQ|JMP|JSR|LD|ST|ADD|INC|OR|STRFIND)\s*(?:(?:(\()?([R#+-])?(0[bx])?([0-9a-f]+)?(h)?(\))?([+-])?)|([a-zA-z]+\s*$))\s*$', re.IGNORECASE)
+line_regex = re.compile(r'^\s*(?:([a-zA-z][a-zA-Z0-9]+)\s*:)?\s*(HALT|RTS|RTI|ROR|ROTR|RORC|ROTRC|PUSH|POP|BLEQ|BGREU|BNNG|BGRT|JLEQ|JMP|JSR|LD|ST|ADD|INC|OR|STRFIND)\s*(?:(?:(\()?([R#+-]|#-)?(0[bx])?([0-9a-f]+)?(h)?(\))?([+-])?)|([a-zA-z][a-zA-Z0-9]+))\s*(?:;|$)', re.IGNORECASE)
 instructions: List[Tuple[Optional[str], Optional[str], Union[str, int, None]]] = []
 opcodes: Dict[str, int] = {
     # Bezadresne
@@ -88,7 +89,7 @@ with open(args.asm_file, 'r', encoding='utf-8') as asm_file:
         instruction = instruction.upper()
         indir = False
         reg = flags == 'R' or flags == 'r'
-        immed = flags == '#'
+        immed = type(flags) is str and flags.startswith('#')
         branch = instruction.startswith('B')
         jump = instruction.startswith('J')
         if destination is not None and destination.endswith('\n'): destination = destination[:-1] # Uklanjanje \n
@@ -99,7 +100,7 @@ with open(args.asm_file, 'r', encoding='utf-8') as asm_file:
         if destination is not None and not jump:
             print('Samo instrukcije apsolutnog skoka mogu imati labelu kao operand.')
             exit(1)
-        if flags == '-' and not (branch or immed):
+        if type(flags) is str and flags.endswith('-') and not (branch or immed):
             print('Samo instrukcije grananja i neposredno adresiranje mogu da imaju znak operanda:', line)
             exit(1)
         if (indir1 is not None) != (indir2 is not None):
@@ -126,7 +127,7 @@ with open(args.asm_file, 'r', encoding='utf-8') as asm_file:
             elif base1 == '0b' or base1 == '0B' or base2 == 'b' or base2 == 'B':
                 base = 2
             operand = int(number, base)
-            if flags == '-':
+            if type(flags) is str and flags.endswith('-'):
                 operand = -operand
             if (reg and operand > 15) or (branch and (operand < -128 or operand > 127)) or operand > 65535:
                 print('Operand van dozvoljenih granica:', line)
@@ -181,7 +182,33 @@ for i, (instruction, adr, operand) in enumerate(instructions):
 
 # Štampanje
 if args.v3hex:
-    print('v3.0 hex words addressed\n1000: ', end='')
+    print('v3.0 hex words addressed')
+elif args.iv:
+    print('IV tabela:')
+
+# Ispis sadržaja IV tabele
+if args.iv:
+    iv_format = []
+    for i in range(4):
+        key = f'intr{i}'
+        if key in labels:
+            formatted_addr = '{:016b}'.format(labels[key])
+            iv_format.append(formatted_addr[0:8])
+            iv_format.append(formatted_addr[8:])
+        else:
+            iv_format.append('00000000')
+            iv_format.append('00000000')
+    if args.v3hex:
+        print('0000: ', end='')
+    if args.binary:
+        print(' '.join(iv_format))
+    else:
+        print(' '.join([hex(int(num, 2)).split('x')[1].upper() for num in iv_format]))
+
+if args.v3hex:
+    print('1000: ', end='')
+elif args.iv:
+    print('================================================')
 for instruction, adr, operand in instructions:
     # print(instruction, adr, operand)
     if instruction is None:
