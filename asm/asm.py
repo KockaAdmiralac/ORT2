@@ -1,25 +1,19 @@
 #!/usr/bin/env python
+from argparse import ArgumentParser
 from typing import Dict, List, Optional, Tuple, Union
-import sys
 import re
 
-if '--help' in sys.argv:
-    print('Asembler za arhitekturu procesora sa ORT projekta (working title).')
-    print('Sintaksa: <asm_fajl.asm> [--binary, --help, --pretty, --v3hex]')
-    print('--binary \t Ispis instrukcija u binarnim ciframa')
-    print('--help \t\t Kratko uputstvo.')
-    print('--pretty \t Štampa novi red na kraju instrukcije.')
-    print('--v3hex \t Štampa u v3.0 hex words addressed formatu, za Logisim.')
-    exit(0)
-
-if len(sys.argv) < 2:
-    print('Potrebno je zadati putanju do datoteke sa programom kao prvi argument komandne linije. --help za uputstvo.')
-    exit(1)
+parser = ArgumentParser(description='Asembler za arhitekturu procesora iz projektnog zadatka 47 sa Osnova računarske tehnike 2 za godinu 2021.')
+parser.add_argument('asm_file', type=str, help='datoteka sa izvornim asemblerskim kodom')
+parser.add_argument('--binary', help='ispis instrukcija u binarnim ciframa', action='store_true')
+parser.add_argument('--pretty', help='štampa novi red na kraju instrukcije', action='store_true')
+parser.add_argument('--v3hex', help='štampa u v3.0 hex words addressed formatu, za Logisim', action='store_true')
+args = parser.parse_args()
 
 # (     0         1               2               3         4          5         6         7     )
 # (Instruction, Indir1, Flags(R, #, +, -), Base1(0b, 0x), Number, Base2(b, h), Indir2, Post(+, -))
 line_regex = re.compile(r'^\s*(?:([a-zA-z]+)\s*:)?\s*(HALT|RTS|RTI|ROR|ROTR|RORC|ROTRC|PUSH|POP|BLEQ|BGREU|BNNG|BGRT|JLEQ|JMP|JSR|LD|ST|ADD|INC|OR|STRFIND)\s*(?:(?:(\()?([R#+-])?(0[bx])?([0-9a-f]+)?(h)?(\))?([+-])?)|([a-zA-z]+\s*$))\s*$', re.IGNORECASE)
-instructions: List[Tuple[str, Optional[str], Union[str, int]]] = []
+instructions: List[Tuple[Optional[str], Optional[str], Union[str, int, None]]] = []
 opcodes: Dict[str, int] = {
     # Bezadresne
     'HALT': 0,
@@ -52,7 +46,7 @@ opcodes: Dict[str, int] = {
 
 labels : Dict[str, int] = {}
 
-lengths : Dict[str, int] = {
+lengths : Dict[Union[str, None], int] = {
     None : 0,
     # Adresiranja
     'immed' : 4,
@@ -81,7 +75,7 @@ lengths : Dict[str, int] = {
 
 adrcodes = ['immed', 'memdir', 'memind', 'regind', 'postincr', 'postdec', 'regdir']
 
-with open(sys.argv[1], 'r', encoding='utf-8') as asm_file:
+with open(args.asm_file, 'r', encoding='utf-8') as asm_file:
     for line in asm_file:
         if line.strip() == '':
             # Prazna linija
@@ -117,7 +111,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as asm_file:
             exit(1)
         # Nova labela
         if label is not None:
-            instructions.append((None,label,None))
+            instructions.append((None, label, None))
         # Određivanje operanda
         operand = None
         if destination is not None:
@@ -171,8 +165,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as asm_file:
 # Faza određivanja labela
 tpos = 0x1000
 for instruction, adr, operand in instructions:
-    #print(instruction, adr, operand, tpos)
-    if instruction is None:
+    if instruction is None and adr is not None:
         labels[adr] = tpos
     else:
         tpos += lengths.get(instruction, 0) + lengths.get(adr, 0)
@@ -187,7 +180,7 @@ for i, (instruction, adr, operand) in enumerate(instructions):
         instructions[i] = (instruction, adr, labels[operand])
 
 # Štampanje
-if '--v3hex' in sys.argv:
+if args.v3hex:
     print('v3.0 hex words addressed\n1000: ', end='')
 for instruction, adr, operand in instructions:
     # print(instruction, adr, operand)
@@ -203,7 +196,7 @@ for instruction, adr, operand in instructions:
     elif instruction.startswith('B'):
         # Instrukcije grananja
         operand_format = '{:08b}'.format(operand)
-        if operand < 0:
+        if type(operand) is int and operand < 0:
             operand_format = bin(operand & 0xFF)[-8:]
         instruction_format.append(operand_format)
     elif opcode >= 48:
@@ -213,16 +206,18 @@ for instruction, adr, operand in instructions:
         nonreg = adr == 'immed' or adr == 'memdir' or adr == 'memind'
         if not nonreg and operand is not None:
             reg = operand
-        instruction_format.append('{:08b}'.format((adrcode << 4) + reg))
+        instruction_format.append('{:08b}'.format((adrcode << 4) + int(reg)))
         if nonreg:
             operand_format = '{:016b}'.format(operand)
-            if operand < 0:
+            if type(operand) is int and operand < 0:
                 operand_format = bin(operand & 0xFFFF)[-16:]
             instruction_format.append(operand_format[0:8])
             instruction_format.append(operand_format[8:])
-    if '--binary' in sys.argv:
+    if args.binary:
         print(' '.join(instruction_format), end=' ')
     else:
         print(' '.join([hex(int(num, 2)).split('x')[1].upper() for num in instruction_format]), end=' ')
-    if '--pretty' in sys.argv: print('')
-
+    if args.pretty:
+        print()
+if not args.pretty:
+    print()

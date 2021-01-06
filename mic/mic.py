@@ -1,12 +1,14 @@
 #!/usr/bin/env python
+from argparse import ArgumentParser
 from math import ceil, log2
 from typing import List, Set, Tuple
 import re
-import sys
 
-if len(sys.argv) < 2:
-    print('Potrebno je zadati putanju do datoteke sa mikrokodom kao prvi argument komandne linije.')
-    exit(1)
+parser = ArgumentParser(description='Generator mikrokoda za projekat iz Osnova računarske tehnike.')
+parser.add_argument('mic_file', type=str, help='datoteka sa izvornim mikrokodom')
+parser.add_argument('--binary', help='ispis mikoinstrukcija u binarnim ciframa', action='store_true')
+parser.add_argument('--v3hex', help='štampa u v3.0 hex words addressed formatu, za Logisim', action='store_true')
+args = parser.parse_args()
 
 step_regex = re.compile(r'^\s*step\s*([0-9A-Fa-f]+)\s*=>\s*(.*)$')
 case_regex = re.compile(r'^br\s*\(\s*case\s*\(')
@@ -35,7 +37,7 @@ def split_before_bracket(line: str) -> List[str]:
             break
     return spl
 
-with open(sys.argv[1], 'r', encoding='utf-8') as mic_file:
+with open(args.mic_file, 'r', encoding='utf-8') as mic_file:
     for line in mic_file:
         stripped_line = line.strip()
         if len(stripped_line) == 0 or stripped_line.startswith('!'):
@@ -94,16 +96,19 @@ def format_binary(num: int, width: int):
     fmt = '{:0' + str(width) + 'b}'
     return fmt.format(num)
 
-print('================== Instrukcija ======================')
-print('Širina instrukcije:', cc_width + ba_width + len(signals))
-print('Signali:')
-for signal in signals.keys():
-    print(f'- {signal}')
-print('CC:')
-for index, code in enumerate(cc):
-    if index > 0:
-        print(f'- {index}: br{code}')
-print('=================== Mikrokod ========================')
+if args.v3hex:
+    print('v3.0 hex words addressed\n0000: ', end='')
+else:
+    print('================== Instrukcija ======================')
+    print('Širina instrukcije:', cc_width + ba_width + len(signals))
+    print('Signali:')
+    for signal in signals.keys():
+        print(f'- {signal}')
+    print('CC:')
+    for index, code in enumerate(cc):
+        if index > 0:
+            print(f'- {index}: br{code}')
+    print('=================== Mikrokod ========================')
 for curr_signals, cc, ba in lines:
     line_bin = ''
     line_bin += format_binary(ba, ba_width)
@@ -113,7 +118,11 @@ for curr_signals, cc, ba in lines:
             line_bin += '1'
         else:
             line_bin += '0'
-    # print(line_bin)
-    print(hex(int(line_bin, 2)).split('x')[1].upper())
-    # print(curr_signals, cc, ba)
-
+    if args.binary:
+        print(line_bin, end=' ')
+    else:
+        print(hex(int(line_bin, 2)).split('x')[1].upper(), end=' ')
+    if not args.v3hex:
+        print()
+if args.v3hex:
+    print()
