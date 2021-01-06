@@ -3,8 +3,17 @@ from typing import Dict, List, Optional, Tuple, Union
 import sys
 import re
 
+if '--help' in sys.argv:
+    print('Asembler za arhitekturu procesora sa ORT projekta (working title).')
+    print('Sintaksa: <asm_fajl.asm> [--binary, --help, --pretty, --v3hex]')
+    print('--binary \t Ispis instrukcija u binarnim ciframa')
+    print('--help \t\t Kratko uputstvo.')
+    print('--pretty \t Štampa novi red na kraju instrukcije.')
+    print('--v3hex \t Štampa u v3.0 hex words addressed formatu, za Logisim.')
+    exit(0)
+
 if len(sys.argv) < 2:
-    print('Potrebno je zadati putanju do datoteke sa programom kao prvi argument komandne linije.')
+    print('Potrebno je zadati putanju do datoteke sa programom kao prvi argument komandne linije. --help za uputstvo.')
     exit(1)
 
 # (     0         1               2               3         4          5         6         7     )
@@ -178,6 +187,8 @@ for i, (instruction, adr, operand) in enumerate(instructions):
         instructions[i] = (instruction, adr, labels[operand])
 
 # Štampanje
+if '--v3hex' in sys.argv:
+    print('v3.0 hex words addressed\n1000: ', end='')
 for instruction, adr, operand in instructions:
     # print(instruction, adr, operand)
     if instruction is None:
@@ -210,6 +221,8 @@ for instruction, adr, operand in instructions:
             instruction_format.append(operand_format[0:8])
             instruction_format.append(operand_format[8:])
     if '--binary' in sys.argv:
-        print(' '.join(instruction_format))
+        print(' '.join(instruction_format), end=' ')
     else:
-        print(' '.join([hex(int(num, 2)).split('x')[1].upper() for num in instruction_format]))
+        print(' '.join([hex(int(num, 2)).split('x')[1].upper() for num in instruction_format]), end=' ')
+    if '--pretty' in sys.argv: print('')
+
