@@ -1,0 +1,87 @@
+step00 => br (if notEXEC then step00)
+step01 => br (case(HALT, RTS, RTI, ROTR, ROTRC, PUSH, POP, BLEQ, BGREU, BNNG, BGRT, JLEQ, JMP, JSR, LD, ADD, OR, ST, INC, STRFIND)) then (HALT, ), (RTS, ), (RTI, ), (ROTR, ), (ROTRC, ), (PUSH, ), (POP, ), (BLEQ, ), (BGREU, ), (BNNG, ), (BGRT, ), (JLEQ, ), (JMP, ), (JSR, ), (LD, ), (ADD, ), (OR, ), (ST, ), (INC, ), (STRFIND, )
+! HALT !
+step02 => clPSWSTART, br stepINTR
+! RTS !
+step03 => incSP
+step04 => ldMAR, mxMAR0, mxMAR2, incSP
+step05 => rdMEM, ldMDR, br (if notFCBUS then step05)
+step06 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC0
+step07 => rdMEM, ldMDR, br (if notFCBUS then step07)
+step08 => ldPC, mxPC1, br stepINTR
+! RTI !
+step09 => incSP
+step0A => ldMAR, mxMAR0, mxMAR2, incSP
+step0B => rdMEM, ldMDR, br (if notFCBUS then step0B)
+step0C => ldMAR, mxMAR0, mxMAR2, ldB, mxB0, incSP
+step0D => rdMEM, ldMDr, br (if notFCBUS then step0D)
+step0E => ldB, mxB1, ldMAR, mxMAR0, mxMAR2, incSP
+step0F => ldA
+step10 => rdMEM, ldMDR, br (if notFCBUS then step10)
+step11 => ldPSWMDR, ldPSWI, ldMAR, mxMAR0, mxMAR2, incSP
+step12 => rdMEM, ldMDR, br (if notFCBUS then step12)
+step13 => ldPSWMDR, ldPSWC, ldPSWV, ldPSWN, ldPSWZ, ldMAR, mxMAR0, mxMAR2, incSP
+step14 => rdMEM, ldMDR, br (if notFCBUS then step14)
+step15 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC0
+step16 => rdMEM, ldMDR, br (if notFCBUS then step16)
+step17 => ldPC, mxPC1, br stepINTR
+! ROTR !
+step18 => ldA, mxA0, mxA1, ldPSWN, ldPSWZ, br stepINTR
+! ROTRC !
+step19 => ldA, mxA0, mxA2, ldC, mxC0, mxC1, br stepINTR
+! PUSH !
+step1A => ldMAR, mxMAR0, mxMAR2, decSP
+step1B => ldMDR, mxMDR0, mxMDR2
+step1C => wrMEM, br (if notFCBUS then step1C)
+step1D => ldMAR, mxMAR0, mxMAR2, decSP, ldMDR, mxMDR1, mxMDR2
+step1E => wrMEM, br (if notFCBUS then step1E)
+step1F => br stepINTR
+! POP !
+step20 => incSP
+step21 => ldMAR, mxMAR0, mxMAR2, incSP
+step22 => rdMEM, ldMDR, br (if notFCBUS then step22)
+step23 => ldMAR, mxMAR0, mxMAR2, ldB, mxB0
+step24 => rdMEM, ldMDR, br (if notFCBUS then step24)
+step25 => ldB, mxB1
+step26 => ldA
+step27 => ldPSWN, ldPSWZ, br stepINTR
+! BLEQ !
+step28 => br (if notbrLEQ then stepINTR)
+step29 => ldPC, mxPC0, mxPC1, br stepINTR
+! BGREU !
+step2A => br (if notbrGREU then stepINTR)
+step2B => ldPC, mxPC0, mxPC1, br stepINTR
+! BNNG !
+step2C => br (if notbrNNG then stepINTR)
+step2D => ldPC, mxPC0, mxPC1, br stepINTR
+! BGRT !
+step2E => br (if notbrGRT then stepINTR)
+step2F => ldPC, mxPC0, mxPC1, br stepINTR
+! JLEQ !
+step30 => br (if notbrLEQ then stepINTR)
+step31 => ldPC, mxPC2, br stepINTR
+! JMP !
+step32 => ldPC, mxPC2, br stepINTR
+! JSR !
+step33 => ldMAR, mxMAR0, mxMAR2, decSP
+step34 => ldMDR, mxMDR0
+step35 => wrMEM, br (if notFCBUS then step35)
+step36 => ldMAR, mxMAR0, mxMAR2, decSP
+step37 => ldMDR, mxMDR1
+step38 => wrMEM, br (if notFCBUS then step38)
+step39 => ldPC, mxPC2, br stepINTR
+! LD !
+step3A => ldA
+step3B => ldPSWN, ldPSWZ, br stepINTR
+! ADD !
+step3C => ldA, mxA0, ldPSWV, ldPSWC
+step3D => ldPSWN, ldPSWZ, br stepINTR
+! OR !
+step3E => ldA, mxA0, mxA1
+step3F => ldPSWN, ldPSWZ, br stepINTR
+! ST !
+step40 => kurac
+! INC !
+! STRFIND !
+! Prelazak u fazu opsluživanja prekida !
+stepINTR => stINTR, clEXEC
