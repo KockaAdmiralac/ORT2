@@ -1,31 +1,30 @@
 step00 => br (if notADDR then step00)
 ! Skok na određeno adresiranje !
-step01 => br (case(immed, memdir, memind, regind, postincr, postdec, regdir)) then (immed, step02), (memdir, step04), (memind, step05), (regind, step0A), (postincr, step0B), (postdec, step0C), (regdir, step12)
+step01 => br (case(immed, memdir, memind, regind, postincr, postdec, regdir)) then (immed, step02), (memdir, step03), (memind, step04), (regind, step09), (postincr, step0A), (postdec, step0B), (regdir, step11)
 ! immed !
-step02 => br (if ST then step14)
-step03 => ldB, br step14
+step02 => ldB, br step13
 ! memdir !
-step04 => ldMAR, mxMAR0, br step0D
+step03 => ldMAR, mxMAR0, br step0C
 ! memind !
-step05 => ldMAR, mxMAR0
-step06 => rdMEM, ldMDR, br (if notFCBUS then step06)
-step07 => ldMAR, mxMAR1
-step08 => rdMEM, ldMDR, br (if notFCBUS then step08)
-step09 => ldMAR, mxMAR0, mxMAR1, br step0D
+step04 => ldMAR, mxMAR0
+step05 => rdMEM, ldMDR, br (if notFCBUS then step06)
+step06 => ldMAR, mxMAR1
+step07 => rdMEM, ldMDR, br (if notFCBUS then step08)
+step08 => ldMAR, mxMAR0, mxMAR1, br step0C
 ! regind !
-step0A => ldMAR, mxMAR2, br step0D
+step09 => ldMAR, mxMAR2, br step0C
 ! postincr !
-step0B => ldMAR, mxMAR2, wrGPR, br step0D
+step0A => ldMAR, mxMAR2, wrGPR, br step0C
 ! postdec !
-step0C => ldMAR, mxMAR2, wrGPR, mxGPRIN0
+step0B => ldMAR, mxMAR2, wrGPR, mxGPRIN0
 ! Čitanje podatka na adresi iz memorije !
-step0D => br (if ST then step14)
-step0E => rdMEM, ldMDR, br (if notFCBUS then step0E)
-step0F => ldB, mxB0
-step10 => rdMEM, ldMDR, br (if notFCBUS then step10)
-step11 => ldB, mxB1, br step14
+step0C => br (if STorINC then step13)
+step0D => rdMEM, ldMDR, br (if notFCBUS then step0E)
+step0E => ldB, mxB0
+step0F => rdMEM, ldMDR, br (if notFCBUS then step10)
+step10 => ldB, mxB1, br step13
 ! regdir !
-step12 => br (if ST then step14)
-step13 => ldB, mxB0, mxB1
+step11 => br (if STorINC then step13)
+step12 => ldB, mxB0, mxB1
 ! Prelazak na EXEC !
-step14 => clADDR, stEXEC, br step00
+step13 => clADDR, stEXEC, br step00

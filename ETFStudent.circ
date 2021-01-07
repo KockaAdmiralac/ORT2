@@ -152,7 +152,7 @@
     </comp>
     <comp lib="0" loc="(170,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x4"/>
+      <a name="value" val="0x3"/>
       <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(210,80)" name="Pin">
@@ -161,7 +161,7 @@
     </comp>
     <comp lib="0" loc="(240,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x5"/>
+      <a name="value" val="0x4"/>
       <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(300,80)" name="Pin">
@@ -170,7 +170,7 @@
     </comp>
     <comp lib="0" loc="(330,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0xa"/>
+      <a name="value" val="0x9"/>
       <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(330,250)" name="Pin">
@@ -185,7 +185,7 @@
     </comp>
     <comp lib="0" loc="(420,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0xb"/>
+      <a name="value" val="0xa"/>
       <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(470,80)" name="Pin">
@@ -194,7 +194,7 @@
     </comp>
     <comp lib="0" loc="(500,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0xc"/>
+      <a name="value" val="0xb"/>
       <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(540,80)" name="Pin">
@@ -203,7 +203,7 @@
     </comp>
     <comp lib="0" loc="(570,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x12"/>
+      <a name="value" val="0x11"/>
       <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(70,80)" name="Pin">
@@ -317,7 +317,7 @@
       <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="230" y="131">BGREU</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="249" y="131">BNNG</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="270" y="131">BGRT</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="283" y="174">5..0</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="283" y="174">6..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="291" y="131">JLEQ</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="309" y="131">JSR</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="8" text-anchor="middle" x="330" y="131">JMP</text>
@@ -333,7 +333,7 @@
     <comp lib="0" loc="(100,110)" name="Constant">
       <a name="facing" val="south"/>
       <a name="value" val="0x2"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1020,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -341,8 +341,8 @@
     </comp>
     <comp lib="0" loc="(1050,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x33"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1100,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -350,8 +350,8 @@
     </comp>
     <comp lib="0" loc="(1130,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x32"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1190,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -359,8 +359,8 @@
     </comp>
     <comp lib="0" loc="(1220,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x3a"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1280,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -368,8 +368,8 @@
     </comp>
     <comp lib="0" loc="(1310,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x62"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1370,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -381,8 +381,8 @@
     </comp>
     <comp lib="0" loc="(1400,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x3c"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1460,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -390,8 +390,8 @@
     </comp>
     <comp lib="0" loc="(1490,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x62"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1550,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -399,8 +399,8 @@
     </comp>
     <comp lib="0" loc="(1580,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x3e"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1630,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -408,13 +408,13 @@
     </comp>
     <comp lib="0" loc="(1660,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x62"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(170,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x4"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x3"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(210,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -422,8 +422,8 @@
     </comp>
     <comp lib="0" loc="(240,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0xa"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x9"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(300,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -431,8 +431,8 @@
     </comp>
     <comp lib="0" loc="(330,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0xc"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x18"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(390,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -440,8 +440,8 @@
     </comp>
     <comp lib="0" loc="(420,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0xe"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x19"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(460,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -449,8 +449,8 @@
     </comp>
     <comp lib="0" loc="(490,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x10"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x1a"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(530,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -458,8 +458,8 @@
     </comp>
     <comp lib="0" loc="(560,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x11"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x20"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(620,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -467,8 +467,8 @@
     </comp>
     <comp lib="0" loc="(650,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x12"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x28"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(70,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -480,8 +480,8 @@
     </comp>
     <comp lib="0" loc="(730,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x17"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x2a"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(770,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -489,8 +489,8 @@
     </comp>
     <comp lib="0" loc="(800,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x1e"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x2c"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(860,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -498,14 +498,14 @@
     </comp>
     <comp lib="0" loc="(890,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x2e"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(890,270)" name="Pin">
       <a name="facing" val="north"/>
       <a name="label" val="Adr"/>
       <a name="output" val="true"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(940,80)" name="Pin">
       <a name="facing" val="south"/>
@@ -513,88 +513,88 @@
     </comp>
     <comp lib="0" loc="(970,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x22"/>
-      <a name="width" val="6"/>
+      <a name="value" val="0x30"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(100,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(1050,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(1130,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(1220,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(1310,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(1400,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(1490,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(1580,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(1660,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(170,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(240,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(330,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(420,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(490,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(560,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(650,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(730,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(800,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(890,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <comp lib="1" loc="(970,160)" name="Controlled Buffer">
       <a name="facing" val="south"/>
-      <a name="width" val="6"/>
+      <a name="width" val="7"/>
     </comp>
     <wire from="(100,110)" to="(100,140)"/>
     <wire from="(100,160)" to="(100,200)"/>
