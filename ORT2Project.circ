@@ -1523,6 +1523,9 @@
       <a name="facing" val="south"/>
       <a name="label" val="rst"/>
     </comp>
+    <comp lib="0" loc="(2340,1140)" name="Tunnel">
+      <a name="label" val="incGPR"/>
+    </comp>
     <comp lib="0" loc="(2340,1160)" name="Tunnel">
       <a name="label" val="wrGPR"/>
     </comp>
@@ -1842,6 +1845,9 @@
     </comp>
     <comp lib="0" loc="(460,1140)" name="Tunnel">
       <a name="label" val="ldPSWMDR"/>
+    </comp>
+    <comp lib="0" loc="(460,1160)" name="Tunnel">
+      <a name="label" val="incGPR"/>
     </comp>
     <comp lib="0" loc="(460,1410)" name="Tunnel">
       <a name="label" val="stFETCH"/>
@@ -3008,6 +3014,7 @@
     <wire from="(2310,600)" to="(2310,610)"/>
     <wire from="(2310,740)" to="(2310,750)"/>
     <wire from="(2310,830)" to="(2310,840)"/>
+    <wire from="(2330,1140)" to="(2340,1140)"/>
     <wire from="(2330,1160)" to="(2340,1160)"/>
     <wire from="(2440,1270)" to="(2440,1770)"/>
     <wire from="(2440,1790)" to="(2440,2030)"/>
