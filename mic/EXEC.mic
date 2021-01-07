@@ -80,8 +80,21 @@ step3D => ldPSWN, ldPSWZ, br stepINTR
 step3E => ldA, mxA0, mxA1
 step3F => ldPSWN, ldPSWZ, br stepINTR
 ! ST !
-step40 => kurac
+step40 => br (if notregdir then step42)
+step41 => wrGPR, mxGPRIN1, br stepINTR
+step42 => ldMDR, mxMDR0, mxMDR2
+step43 => wrMEM, br (if notFCBUS then step43)
+step44 => ldMDR, mxMDR1, mxMDR2
+step45 => wrMEM, br (if notFCBUS then step45)
+step44 => br stepINTR
 ! INC !
+step45 => br (if notregdir then step47)
+step46 => incGPR, br stepINTR
+step47 => ldMDR, mxMDR0, mxMDR1, mxMDR2
+step48 => wrMEM, br (if notFCBUS then step48)
+step49 => ldMDR, mxMDR3
+step4A => wrMEM, br (if notFCBUS then step4A)
+step4B => br stepINTR
 ! STRFIND !
 ! Prelazak u fazu opsluživanja prekida !
 ! stepINTR => stINTR, clEXEC
