@@ -29,7 +29,6 @@
   <lib desc="#Plexers" name="2">
     <tool name="Multiplexer">
       <a name="enable" val="false"/>
-      <a name="width" val="8"/>
     </tool>
     <tool name="Demultiplexer">
       <a name="enable" val="false"/>
@@ -2097,6 +2096,11 @@
       <a name="incoming" val="16"/>
       <a name="spacing" val="2"/>
     </comp>
+    <comp lib="0" loc="(740,470)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="A"/>
+      <a name="width" val="16"/>
+    </comp>
     <comp lib="0" loc="(760,240)" name="Splitter">
       <a name="appear" val="right"/>
       <a name="bit1" val="0"/>
@@ -3098,6 +3102,7 @@
     <wire from="(710,230)" to="(740,230)"/>
     <wire from="(720,290)" to="(820,290)"/>
     <wire from="(720,340)" to="(760,340)"/>
+    <wire from="(740,470)" to="(810,470)"/>
     <wire from="(760,240)" to="(830,240)"/>
     <wire from="(760,440)" to="(800,440)"/>
     <wire from="(780,350)" to="(810,350)"/>
@@ -3107,6 +3112,8 @@
     <wire from="(800,400)" to="(850,400)"/>
     <wire from="(810,350)" to="(810,370)"/>
     <wire from="(810,370)" to="(850,370)"/>
+    <wire from="(810,410)" to="(810,470)"/>
+    <wire from="(810,410)" to="(850,410)"/>
     <wire from="(820,290)" to="(820,360)"/>
     <wire from="(820,360)" to="(850,360)"/>
     <wire from="(830,240)" to="(830,350)"/>
@@ -5716,7 +5723,7 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
       <a name="label" val="PSWC"/>
     </comp>
     <comp lib="0" loc="(790,470)" name="Constant">
-      <a name="value" val="0xffff"/>
+      <a name="value" val="0x0"/>
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(800,710)" name="Splitter">
