@@ -12,6 +12,9 @@
     <tool name="Probe">
       <a name="appearance" val="NewPins"/>
     </tool>
+    <tool name="Tunnel">
+      <a name="facing" val="east"/>
+    </tool>
     <tool name="Constant">
       <a name="facing" val="north"/>
       <a name="value" val="0xffff"/>
@@ -26,6 +29,7 @@
   <lib desc="#Plexers" name="2">
     <tool name="Multiplexer">
       <a name="enable" val="false"/>
+      <a name="width" val="8"/>
     </tool>
     <tool name="Demultiplexer">
       <a name="enable" val="false"/>
@@ -407,6 +411,11 @@
     <comp lib="0" loc="(560,130)" name="Pull Resistor"/>
     <comp lib="0" loc="(580,130)" name="Pull Resistor"/>
     <comp lib="0" loc="(600,130)" name="Pull Resistor"/>
+    <comp lib="0" loc="(730,800)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="DIN"/>
+      <a name="width" val="8"/>
+    </comp>
     <comp lib="0" loc="(960,640)" name="Tunnel">
       <a name="label" val="rst"/>
     </comp>
@@ -558,25 +567,20 @@
     <wire from="(560,130)" to="(560,290)"/>
     <wire from="(560,290)" to="(560,500)"/>
     <wire from="(560,290)" to="(750,290)"/>
-    <wire from="(560,500)" to="(560,700)"/>
+    <wire from="(560,500)" to="(560,870)"/>
     <wire from="(560,500)" to="(750,500)"/>
-    <wire from="(560,700)" to="(560,870)"/>
-    <wire from="(560,700)" to="(750,700)"/>
     <wire from="(560,870)" to="(560,1030)"/>
     <wire from="(560,870)" to="(750,870)"/>
     <wire from="(580,130)" to="(580,310)"/>
     <wire from="(580,310)" to="(580,520)"/>
     <wire from="(580,310)" to="(750,310)"/>
-    <wire from="(580,520)" to="(580,720)"/>
+    <wire from="(580,520)" to="(580,890)"/>
     <wire from="(580,520)" to="(750,520)"/>
-    <wire from="(580,720)" to="(580,890)"/>
-    <wire from="(580,720)" to="(750,720)"/>
     <wire from="(580,890)" to="(580,1030)"/>
     <wire from="(580,890)" to="(750,890)"/>
     <wire from="(600,130)" to="(600,370)"/>
-    <wire from="(600,370)" to="(600,740)"/>
-    <wire from="(600,740)" to="(600,1030)"/>
-    <wire from="(600,740)" to="(750,740)"/>
+    <wire from="(600,370)" to="(600,1030)"/>
+    <wire from="(730,800)" to="(750,800)"/>
     <wire from="(940,1000)" to="(970,1000)"/>
     <wire from="(940,1020)" to="(970,1020)"/>
     <wire from="(940,1040)" to="(970,1040)"/>
@@ -596,7 +600,6 @@
     <wire from="(940,720)" to="(960,720)"/>
     <wire from="(940,740)" to="(960,740)"/>
     <wire from="(940,770)" to="(970,770)"/>
-    <wire from="(940,790)" to="(970,790)"/>
     <wire from="(940,810)" to="(970,810)"/>
     <wire from="(940,850)" to="(970,850)"/>
     <wire from="(940,870)" to="(970,870)"/>
@@ -4791,14 +4794,15 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <a name="clabelup" val="east"/>
     <appear>
       <circ-anchor facing="east" height="6" width="6" x="197" y="167"/>
-      <circ-port height="10" pin="1520,620" width="10" x="295" y="165"/>
-      <circ-port height="10" pin="1520,690" width="10" x="295" y="185"/>
+      <circ-port height="10" pin="1520,620" width="10" x="295" y="225"/>
+      <circ-port height="10" pin="1520,690" width="10" x="295" y="205"/>
       <circ-port height="10" pin="1730,620" width="10" x="105" y="135"/>
       <circ-port height="10" pin="2030,610" width="10" x="295" y="155"/>
       <circ-port height="10" pin="2030,670" width="10" x="295" y="175"/>
       <circ-port height="10" pin="2030,740" width="10" x="105" y="155"/>
       <circ-port height="10" pin="2030,940" width="10" x="105" y="175"/>
       <circ-port height="8" pin="180,540" width="8" x="296" y="136"/>
+      <circ-port height="8" pin="230,350" width="8" x="106" y="236"/>
       <circ-port height="8" pin="240,1410" width="8" x="106" y="96"/>
       <circ-port height="8" pin="250,970" width="8" x="106" y="116"/>
       <circ-port height="8" pin="260,770" width="8" x="106" y="76"/>
@@ -4807,10 +4811,12 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
       <circ-port height="8" pin="70,140" width="8" x="296" y="96"/>
       <circ-port height="8" pin="70,170" width="8" x="296" y="246"/>
       <rect fill="#ffffff" height="191" stroke="#000000" stroke-width="2" width="190" x="110" y="69"/>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="129" y="238">DIN</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="133" y="144">CBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="137" y="181">CPSW</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="141" y="164">CFFBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="146" y="125">ADDRBUS</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="151" y="245">7..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="155" y="106">INSTRUCBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="156" y="85">PHASEFFBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="165" y="185">5..0</text>
@@ -4822,8 +4828,8 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="257" y="144">inPSW</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="257" y="182">outALU</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="263" y="164">outA</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="268" y="209">WRMEM</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="269" y="125">inB</text>
-      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="270" y="209">WRMEM</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="270" y="229">RDMEM</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="271" y="248">FCBUS</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="279" y="104">CLK</text>
@@ -4834,11 +4840,6 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="288" y="129">7..0</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="20" font-weight="bold" text-anchor="middle" x="204" y="216">EXEC</text>
     </appear>
-    <comp lib="0" loc="(1020,370)" name="Constant">
-      <a name="facing" val="north"/>
-      <a name="value" val="0xffff"/>
-      <a name="width" val="16"/>
-    </comp>
     <comp lib="0" loc="(1050,240)" name="Splitter">
       <a name="appear" val="right"/>
       <a name="fanout" val="3"/>
@@ -5324,19 +5325,22 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
       <a name="facing" val="east"/>
       <a name="label" val="PSWZ"/>
     </comp>
-    <comp lib="0" loc="(1830,440)" name="Tunnel">
+    <comp lib="0" loc="(1850,850)" name="Constant"/>
+    <comp lib="0" loc="(1860,440)" name="Tunnel">
       <a name="label" val="eqCHAR"/>
     </comp>
-    <comp lib="0" loc="(1830,500)" name="Tunnel">
+    <comp lib="0" loc="(1860,500)" name="Tunnel">
       <a name="label" val="eqZERO"/>
     </comp>
-    <comp lib="0" loc="(1850,850)" name="Constant"/>
     <comp lib="0" loc="(1860,840)" name="Tunnel">
       <a name="facing" val="south"/>
       <a name="label" val="clEXEC"/>
     </comp>
     <comp lib="0" loc="(1900,200)" name="Tunnel">
       <a name="label" val="brGRT"/>
+    </comp>
+    <comp lib="0" loc="(1900,370)" name="Tunnel">
+      <a name="label" val="brchar"/>
     </comp>
     <comp lib="0" loc="(1930,240)" name="Tunnel">
       <a name="label" val="brLEQ"/>
@@ -5474,6 +5478,10 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
       <a name="label" val="PSW"/>
       <a name="width" val="16"/>
     </comp>
+    <comp lib="0" loc="(230,350)" name="Pin">
+      <a name="label" val="DIN"/>
+      <a name="width" val="8"/>
+    </comp>
     <comp lib="0" loc="(230,540)" name="Splitter">
       <a name="bit10" val="none"/>
       <a name="bit11" val="none"/>
@@ -5514,6 +5522,10 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     </comp>
     <comp lib="0" loc="(250,970)" name="Pin">
       <a name="label" val="ADDRBUS"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(260,350)" name="Tunnel">
+      <a name="label" val="DIN"/>
       <a name="width" val="8"/>
     </comp>
     <comp lib="0" loc="(260,770)" name="Pin">
@@ -5703,6 +5715,10 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
       <a name="facing" val="east"/>
       <a name="label" val="PSWC"/>
     </comp>
+    <comp lib="0" loc="(790,470)" name="Constant">
+      <a name="value" val="0xffff"/>
+      <a name="width" val="16"/>
+    </comp>
     <comp lib="0" loc="(800,710)" name="Splitter">
       <a name="appear" val="right"/>
       <a name="bit1" val="0"/>
@@ -5882,6 +5898,9 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <comp lib="0" loc="(820,980)" name="Tunnel">
       <a name="label" val="ldA"/>
     </comp>
+    <comp lib="0" loc="(830,510)" name="Tunnel">
+      <a name="label" val="eqCHAR"/>
+    </comp>
     <comp lib="0" loc="(850,430)" name="Splitter">
       <a name="appear" val="right"/>
       <a name="spacing" val="2"/>
@@ -6058,6 +6077,9 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <comp lib="1" loc="(1880,200)" name="OR Gate">
       <a name="size" val="30"/>
     </comp>
+    <comp lib="1" loc="(1890,370)" name="OR Gate">
+      <a name="size" val="30"/>
+    </comp>
     <comp lib="1" loc="(1930,240)" name="NOT Gate"/>
     <comp lib="1" loc="(1970,1030)" name="Controlled Buffer">
       <a name="control" val="left"/>
@@ -6102,6 +6124,10 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
       <a name="select" val="3"/>
       <a name="width" val="16"/>
     </comp>
+    <comp lib="2" loc="(820,480)" name="Multiplexer">
+      <a name="enable" val="false"/>
+      <a name="width" val="16"/>
+    </comp>
     <comp lib="2" loc="(840,1690)" name="Multiplexer">
       <a name="enable" val="false"/>
       <a name="facing" val="south"/>
@@ -6117,14 +6143,14 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <comp lib="3" loc="(1810,500)" name="Comparator">
       <a name="mode" val="unsigned"/>
     </comp>
+    <comp lib="3" loc="(740,490)" name="Subtractor">
+      <a name="width" val="16"/>
+    </comp>
     <comp lib="3" loc="(850,290)" name="Shifter">
       <a name="shift" val="rr"/>
       <a name="width" val="16"/>
     </comp>
     <comp lib="3" loc="(930,160)" name="Adder">
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="3" loc="(990,350)" name="Subtractor">
       <a name="width" val="16"/>
     </comp>
     <comp lib="4" loc="(1200,90)" name="Counter">
@@ -6166,10 +6192,8 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <wire from="(1000,200)" to="(1000,310)"/>
     <wire from="(1000,200)" to="(1030,200)"/>
     <wire from="(1010,1470)" to="(1010,1500)"/>
-    <wire from="(1010,210)" to="(1010,350)"/>
+    <wire from="(1010,210)" to="(1010,480)"/>
     <wire from="(1010,210)" to="(1030,210)"/>
-    <wire from="(1020,220)" to="(1020,370)"/>
-    <wire from="(1020,220)" to="(1030,220)"/>
     <wire from="(1030,1320)" to="(1140,1320)"/>
     <wire from="(1030,1330)" to="(1160,1330)"/>
     <wire from="(1030,1340)" to="(1140,1340)"/>
@@ -6326,16 +6350,23 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <wire from="(180,540)" to="(220,540)"/>
     <wire from="(1800,190)" to="(1850,190)"/>
     <wire from="(1800,870)" to="(1970,870)"/>
-    <wire from="(1810,440)" to="(1830,440)"/>
-    <wire from="(1810,500)" to="(1830,500)"/>
+    <wire from="(1810,440)" to="(1840,440)"/>
+    <wire from="(1810,500)" to="(1820,500)"/>
     <wire from="(1820,230)" to="(1830,230)"/>
+    <wire from="(1820,360)" to="(1820,500)"/>
+    <wire from="(1820,360)" to="(1860,360)"/>
+    <wire from="(1820,500)" to="(1860,500)"/>
     <wire from="(1830,210)" to="(1830,230)"/>
     <wire from="(1830,210)" to="(1850,210)"/>
+    <wire from="(1840,380)" to="(1840,440)"/>
+    <wire from="(1840,380)" to="(1860,380)"/>
+    <wire from="(1840,440)" to="(1860,440)"/>
     <wire from="(1870,850)" to="(1970,850)"/>
     <wire from="(1880,200)" to="(1890,200)"/>
     <wire from="(1890,200)" to="(1890,240)"/>
     <wire from="(1890,200)" to="(1900,200)"/>
     <wire from="(1890,240)" to="(1900,240)"/>
+    <wire from="(1890,370)" to="(1900,370)"/>
     <wire from="(1990,610)" to="(2030,610)"/>
     <wire from="(1990,670)" to="(2030,670)"/>
     <wire from="(1990,740)" to="(2030,740)"/>
@@ -6343,6 +6374,7 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <wire from="(2000,60)" to="(2000,540)"/>
     <wire from="(220,540)" to="(220,560)"/>
     <wire from="(220,540)" to="(230,540)"/>
+    <wire from="(230,350)" to="(260,350)"/>
     <wire from="(240,1410)" to="(270,1410)"/>
     <wire from="(250,970)" to="(270,970)"/>
     <wire from="(260,770)" to="(270,770)"/>
@@ -6356,22 +6388,28 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <wire from="(530,1720)" to="(780,1720)"/>
     <wire from="(530,660)" to="(530,1720)"/>
     <wire from="(530,660)" to="(540,660)"/>
-    <wire from="(590,120)" to="(790,120)"/>
+    <wire from="(590,120)" to="(650,120)"/>
     <wire from="(590,170)" to="(690,170)"/>
+    <wire from="(650,120)" to="(650,500)"/>
+    <wire from="(650,120)" to="(790,120)"/>
+    <wire from="(650,500)" to="(700,500)"/>
     <wire from="(690,170)" to="(690,430)"/>
     <wire from="(690,170)" to="(720,170)"/>
+    <wire from="(690,430)" to="(690,480)"/>
     <wire from="(690,430)" to="(780,430)"/>
+    <wire from="(690,480)" to="(700,480)"/>
     <wire from="(70,110)" to="(90,110)"/>
     <wire from="(70,140)" to="(90,140)"/>
     <wire from="(70,170)" to="(90,170)"/>
     <wire from="(720,170)" to="(720,280)"/>
     <wire from="(720,170)" to="(760,170)"/>
     <wire from="(720,280)" to="(750,280)"/>
+    <wire from="(740,490)" to="(790,490)"/>
     <wire from="(750,280)" to="(750,320)"/>
     <wire from="(750,280)" to="(810,280)"/>
     <wire from="(750,320)" to="(760,320)"/>
     <wire from="(760,170)" to="(760,250)"/>
-    <wire from="(760,170)" to="(870,170)"/>
+    <wire from="(760,170)" to="(890,170)"/>
     <wire from="(760,250)" to="(810,250)"/>
     <wire from="(780,1560)" to="(1200,1560)"/>
     <wire from="(780,1560)" to="(780,1720)"/>
@@ -6386,6 +6424,8 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <wire from="(800,340)" to="(820,340)"/>
     <wire from="(800,410)" to="(800,420)"/>
     <wire from="(800,410)" to="(830,410)"/>
+    <wire from="(800,500)" to="(800,510)"/>
+    <wire from="(800,510)" to="(830,510)"/>
     <wire from="(810,1670)" to="(810,1730)"/>
     <wire from="(810,1670)" to="(820,1670)"/>
     <wire from="(820,1500)" to="(1010,1500)"/>
@@ -6393,6 +6433,7 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <wire from="(820,340)" to="(820,390)"/>
     <wire from="(820,340)" to="(840,340)"/>
     <wire from="(820,390)" to="(830,390)"/>
+    <wire from="(820,480)" to="(1010,480)"/>
     <wire from="(830,1520)" to="(830,1660)"/>
     <wire from="(840,1690)" to="(840,1700)"/>
     <wire from="(840,1700)" to="(960,1700)"/>
@@ -6402,22 +6443,16 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <wire from="(850,290)" to="(990,290)"/>
     <wire from="(860,310)" to="(1000,310)"/>
     <wire from="(860,310)" to="(860,320)"/>
-    <wire from="(870,170)" to="(870,340)"/>
-    <wire from="(870,170)" to="(890,170)"/>
-    <wire from="(870,340)" to="(950,340)"/>
     <wire from="(870,410)" to="(880,410)"/>
+    <wire from="(880,120)" to="(1000,120)"/>
     <wire from="(880,120)" to="(880,150)"/>
-    <wire from="(880,120)" to="(940,120)"/>
     <wire from="(880,150)" to="(890,150)"/>
     <wire from="(910,180)" to="(910,190)"/>
     <wire from="(930,160)" to="(960,160)"/>
     <wire from="(930,1670)" to="(960,1670)"/>
-    <wire from="(940,120)" to="(1000,120)"/>
-    <wire from="(940,120)" to="(940,360)"/>
     <wire from="(940,1610)" to="(960,1610)"/>
     <wire from="(940,1630)" to="(960,1630)"/>
     <wire from="(940,1640)" to="(960,1640)"/>
-    <wire from="(940,360)" to="(950,360)"/>
     <wire from="(960,160)" to="(960,170)"/>
     <wire from="(960,1620)" to="(960,1630)"/>
     <wire from="(960,170)" to="(1030,170)"/>
@@ -6425,7 +6460,6 @@ c2026 c2042 c20c2 1c2 13a000 e8018 201 108018
     <wire from="(980,180)" to="(980,240)"/>
     <wire from="(990,190)" to="(1030,190)"/>
     <wire from="(990,190)" to="(990,290)"/>
-    <wire from="(990,350)" to="(1010,350)"/>
   </circuit>
   <circuit name="INTR">
     <a name="appearance" val="custom"/>
