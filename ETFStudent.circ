@@ -365,7 +365,7 @@
     </comp>
     <comp lib="0" loc="(1310,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x62"/>
+      <a name="value" val="0x40"/>
       <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1370,80)" name="Pin">
@@ -387,7 +387,7 @@
     </comp>
     <comp lib="0" loc="(1490,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x62"/>
+      <a name="value" val="0x47"/>
       <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(1550,80)" name="Pin">
@@ -405,7 +405,7 @@
     </comp>
     <comp lib="0" loc="(1660,110)" name="Constant">
       <a name="facing" val="south"/>
-      <a name="value" val="0x62"/>
+      <a name="value" val="0x4e"/>
       <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(170,110)" name="Constant">

@@ -102,4 +102,4 @@ step50 => rdMEM, br (if notFCBUS then step4E)
 step51 => incA, br (if notbrchar then step4D)
 step52 => ldA, mxA0, mxA2
 ! Prelazak u fazu opsluživanja prekida !
-step53 => stINTR, clEXEC
+step53 => stINTR, clEXEC, br step00
