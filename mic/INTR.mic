@@ -22,4 +22,4 @@ step10 => ldPC, mxPC0, incMAR
 step11 => rdMEM, ldMDR, br (if notFCBUS then step11)
 step12 => ldPC, mxPC1, ldBR
 ! Vraćanje na FETCH !
-step13 => clINTR, stFETCH
+step13 => clINTR, stFETCH, br step00
