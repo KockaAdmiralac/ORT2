@@ -84,7 +84,7 @@ step40 => br (if notregdir then step42)
 step41 => wrGPR, mxGPRIN1, br step53
 step42 => ldMDR, mxMDR0, mxMDR2
 step43 => wrMEM, br (if notFCBUS then step43)
-step44 => ldMDR, mxMDR1, mxMDR2
+step44 => ldMDR, mxMDR1, mxMDR2, incMAR
 step45 => wrMEM, br (if notFCBUS then step45)
 step46 => br step53
 ! INC !
@@ -92,7 +92,7 @@ step47 => br (if notregdir then step47)
 step48 => incGPR, br step53
 step49 => ldMDR, mxMDR0, mxMDR1, mxMDR2
 step4A => wrMEM, br (if notFCBUS then step48)
-step4B => ldMDR, mxMDR3
+step4B => ldMDR, mxMDR3, incMAR
 step4C => wrMEM, br (if notFCBUS then step4A)
 step4D => br step53
 ! STRFIND !

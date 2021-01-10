@@ -7,10 +7,10 @@ step02 => ldB, br step13
 step03 => ldMAR, mxMAR0, br step0C
 ! memind !
 step04 => ldMAR, mxMAR0
-step05 => rdMEM, ldMDR, br (if notFCBUS then step06)
-step06 => ldMAR, mxMAR1
-step07 => rdMEM, ldMDR, br (if notFCBUS then step08)
-step08 => ldMAR, mxMAR0, mxMAR1, br step0C
+step05 => rdMEM, ldMDR, br (if notFCBUS then step05)
+step06 => incMAR, ldB, mxB0
+step07 => rdMEM, ldMDR, br (if notFCBUS then step07)
+step08 => ldMAR, mxMAR1, br step0C
 ! regind !
 step09 => ldMAR, mxMAR2, br step0C
 ! postincr !
@@ -19,9 +19,9 @@ step0A => ldMAR, mxMAR2, wrGPR, br step0C
 step0B => ldMAR, mxMAR2, wrGPR, mxGPRIN0
 ! Čitanje podatka na adresi iz memorije !
 step0C => br (if STorINC then step13)
-step0D => rdMEM, ldMDR, br (if notFCBUS then step0E)
-step0E => ldB, mxB0
-step0F => rdMEM, ldMDR, br (if notFCBUS then step10)
+step0D => rdMEM, ldMDR, br (if notFCBUS then step0D)
+step0E => ldB, mxB0, incMAR
+step0F => rdMEM, ldMDR, br (if notFCBUS then step0F)
 step10 => ldB, mxB1, br step13
 ! regdir !
 step11 => br (if STorINC then step13)
