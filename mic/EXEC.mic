@@ -6,25 +6,25 @@ step02 => clPSWSTART, br step53
 step03 => incSP
 step04 => ldMAR, mxMAR0, mxMAR2, incSP
 step05 => rdMEM, ldMDR, br (if notFCBUS then step05)
-step06 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC0
+step06 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC1
 step07 => rdMEM, ldMDR, br (if notFCBUS then step07)
-step08 => ldPC, mxPC1, br step53
+step08 => ldPC, mxPC0, br step53
 ! RTI !
 step09 => incSP
 step0A => ldMAR, mxMAR0, mxMAR2, incSP
 step0B => rdMEM, ldMDR, br (if notFCBUS then step0B)
-step0C => ldMAR, mxMAR0, mxMAR2, ldB, mxB0, incSP
+step0C => ldMAR, mxMAR0, mxMAR2, ldB, mxB1, incSP
 step0D => rdMEM, ldMDR, br (if notFCBUS then step0D)
-step0E => ldB, mxB1, ldMAR, mxMAR0, mxMAR2, incSP
+step0E => ldB, mxB0, ldMAR, mxMAR0, mxMAR2, incSP
 step0F => ldA
 step10 => rdMEM, ldMDR, br (if notFCBUS then step10)
-step11 => ldPSWMDR, ldPSWI, ldMAR, mxMAR0, mxMAR2, incSP
+step11 => ldPSWMDR, ldPSWC, ldPSWV, ldPSWN, ldPSWZ, ldMAR, mxMAR0, mxMAR2, incSP
 step12 => rdMEM, ldMDR, br (if notFCBUS then step12)
-step13 => ldPSWMDR, ldPSWC, ldPSWV, ldPSWN, ldPSWZ, ldMAR, mxMAR0, mxMAR2, incSP
+step13 => ldPSWMDR, ldPSWI, ldMAR, mxMAR0, mxMAR2, incSP
 step14 => rdMEM, ldMDR, br (if notFCBUS then step14)
-step15 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC0
+step15 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC1
 step16 => rdMEM, ldMDR, br (if notFCBUS then step16)
-step17 => ldPC, mxPC1, br step53
+step17 => ldPC, mxPC0, br step53
 ! ROTR !
 step18 => ldA, mxA0, mxA1, ldPSWN, ldPSWZ, br step53
 ! ROTRC !
