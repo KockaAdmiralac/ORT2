@@ -16,7 +16,7 @@ step0B => wrMEM, br (if notFCBUS then step0B)
 step0C => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR1, mxMDR2
 step0D => wrMEM, br (if notFCBUS then step0D)
 ! Učitavanje nove adrese u PC !
-step0E => ldMAR, mxMAR0, mxMAR2
+step0E => ldMAR, mxMAR1, mxMAR2
 step0F => rdMEM, ldMDR, br (if notFCBUS then step0F)
 step10 => ldPC, mxPC0, incMAR
 step11 => rdMEM, ldMDR, br (if notFCBUS then step11)
