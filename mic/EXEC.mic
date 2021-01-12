@@ -28,7 +28,7 @@ step17 => ldPC, mxPC0, br step53
 ! ROTR !
 step18 => ldA, mxA0, mxA1, ldPSWN, ldPSWZ, ldPSWC, mxC1, br step53
 ! ROTRC !
-step19 => ldA, mxA0, mxA2, ldPSWN, ldPSWZ, ldPSWC, mxC1, br step53
+step19 => ldA, mxA2, ldPSWN, ldPSWZ, ldPSWC, mxC1, br step53
 ! PUSH !
 step1A => ldMAR, mxMAR0, mxMAR2, decSP
 step1B => ldMDR, mxMDR0, mxMDR2
@@ -88,18 +88,18 @@ step44 => ldMDR, mxMDR1, mxMDR2, incMAR
 step45 => wrMEM, br (if notFCBUS then step45)
 step46 => br step53
 ! INC !
-step47 => br (if notregdir then step47)
+step47 => br (if notregdir then step49)
 step48 => incGPR, br step53
 step49 => ldMDR, mxMDR0, mxMDR1, mxMDR2
-step4A => wrMEM, br (if notFCBUS then step48)
+step4A => wrMEM, br (if notFCBUS then step4A)
 step4B => ldMDR, mxMDR3, incMAR
-step4C => wrMEM, br (if notFCBUS then step4A)
+step4C => wrMEM, br (if notFCBUS then step4C)
 step4D => br step53
 ! STRFIND !
 step4E => ldAUX, ldA
 step4F => ldMAR, mxMAR0, mxMAR1, mxMAR2
-step50 => rdMEM, br (if notFCBUS then step4E)
-step51 => incA, br (if notbrchar then step4D)
+step50 => rdMEM, ldMDR, br (if notFCBUS then step50)
+step51 => incA, br (if notbrchar then step4F)
 step52 => ldA, mxA0, mxA2
 ! Prelazak u fazu opsluživanja prekida !
 step53 => stINTR, clEXEC, br step00
