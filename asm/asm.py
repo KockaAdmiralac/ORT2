@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 # (     0         1               2               3         4          5         6         7     )
 # (Instruction, Indir1, Flags(R, #, +, -), Base1(0b, 0x), Number, Base2(b, h), Indir2, Post(+, -))
-line_regex = re.compile(r'^\s*(?:([a-zA-z][a-zA-Z0-9]+)\s*:)?\s*(HALT|RTS|RTI|ROR|ROTR|RORC|ROTRC|PUSH|POP|BLEQ|BGREU|BNNG|BGRT|JLEQ|JMP|JSR|LD|ST|ADD|INC|OR|STRFIND)\s*(?:(?:(\()?([R#+-]|#-)?(0[bx])?([0-9a-f]+)?(h)?(\))?([+-])?)|([a-zA-z][a-zA-Z0-9]+))\s*(?:;|$)', re.IGNORECASE)
+line_regex = re.compile(r'^\s*(?:([a-zA-z][a-zA-Z0-9]+)\s*:)?\s*(HALT|RTS|RTI|ROT?RC?|PUSH|POP|BLEQ|BGREU|BNNG|BGRT|JLEQ|JMP|JSR|LD|ST|ADD|INC|OR|STRFIND)\s*(?:(?:(\()?([R#+-]|#-)?(0[bx])?([0-9a-f]+)?(h)?(\))?([+-])?)|([a-zA-z][a-zA-Z0-9]+))\s*(?:;|$)', re.IGNORECASE)
 instructions: List[Tuple[Optional[str], Optional[str], Union[str, int, None]]] = []
 opcodes: Dict[str, int] = {
     # Bezadresne
@@ -119,6 +119,7 @@ with open(args.asm_file, 'r', encoding='utf-8') as asm_file:
             operand = destination
         elif number is not None:
             if opcodes[instruction] < 8:
+                print(label, instruction, indir1, flags, base1, number, base2, indir2, post, destination)
                 print('Bezadresne instrukcije ne primaju operande:', line)
                 exit(1)
             base = 10

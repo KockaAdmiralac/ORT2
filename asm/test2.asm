@@ -9,8 +9,9 @@
         JLEQ pop    ; Skakanje jer je Z = 1
         ST 2006h
 pop:    POP         ; Vraćanje sa steka
-        BGRT nope   ; Preskakanje HALT
+        BGRT 1      ; Preskakanje HALT
         HALT
-nope:   RORC
+        RORC
         LD #2211h
-        STRFIND #1000h
+        STRFIND #2000h
+        HALT
