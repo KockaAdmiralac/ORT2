@@ -26,9 +26,9 @@ step15 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC1
 step16 => rdMEM, ldMDR, br (if notFCBUS then step16)
 step17 => ldPC, mxPC0, br step53
 ! ROTR !
-step18 => ldA, mxA0, mxA1, ldPSWN, ldPSWZ, br step53
+step18 => ldA, mxA0, mxA1, ldPSWN, ldPSWZ, ldPSWC, mxC1, br step53
 ! ROTRC !
-step19 => ldA, mxA0, mxA2, ldC, mxC0, mxC1, br step53
+step19 => ldA, mxA0, mxA2, ldPSWN, ldPSWZ, ldPSWC, mxC1, br step53
 ! PUSH !
 step1A => ldMAR, mxMAR0, mxMAR2, decSP
 step1B => ldMDR, mxMDR0, mxMDR2
@@ -74,10 +74,10 @@ step39 => ldPC, mxPC2, br step53
 step3A => ldA
 step3B => ldPSWN, ldPSWZ, br step53
 ! ADD !
-step3C => ldA, mxA0, ldPSWV, ldPSWC
+step3C => ldA, mxA0, ldPSWV, ldPSWC, mxC0
 step3D => ldPSWN, ldPSWZ, br step53
 ! OR !
-step3E => ldA, mxA0, mxA1
+step3E => ldA, mxA1
 step3F => ldPSWN, ldPSWZ, br step53
 ! ST !
 step40 => br (if notregdir then step42)

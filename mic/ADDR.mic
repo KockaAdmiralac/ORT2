@@ -18,7 +18,7 @@ step0A => ldMAR, mxMAR2, wrGPR, br step0C
 ! postdec !
 step0B => ldMAR, mxMAR2, wrGPR, mxGPRIN0
 ! Čitanje podatka na adresi iz memorije !
-step0C => br (if STorINC then step13)
+step0C => br (if ST then step13)
 step0D => rdMEM, ldMDR, br (if notFCBUS then step0D)
 step0E => ldB, mxB0, incMAR
 step0F => rdMEM, ldMDR, br (if notFCBUS then step0F)
