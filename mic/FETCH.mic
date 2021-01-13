@@ -20,6 +20,6 @@ step0E => incPC, ldMAR
 step0F => rdMEM, ldMDR, br (if notFCBUS then step0F)
 step10 => ldIR[7_0]
 ! ID !
-step11 => rsFETCH, stADDR, br step00
+step11 => clFETCH, stADDR, br step00
 ! EX !
-step12 => rsFETCH, stEXEC, br step00
+step12 => clFETCH, stEXEC, br step00
