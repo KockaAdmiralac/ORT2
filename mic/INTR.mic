@@ -1,5 +1,5 @@
 step00 => br (if notINTR then step00)
-step01 => br (if notPSWIandintrset then step13)
+step01 => br (if notPrekid then step13)
 ! Čuvanje PC na steku !
 step02 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR0
 step03 => wrMEM, br (if notFCBUS then step03)

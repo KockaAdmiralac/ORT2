@@ -1,5 +1,5 @@
 step00 => br (if notEXEC then step00)
-step01 => br (case(HALT, RTS, RTI, ROTR, ROTRC, PUSH, POP, BLEQ, BGREU, BNNG, BGRT, JLEQ, JMP, JSR, LD, ADD, OR, ST, INC, STRFIND)) then (HALT, step02), (RTS, step03), (RTI, step09), (ROTR, step18), (ROTRC, step19), (PUSH, step1A), (POP, step20), (BLEQ, step28), (BGREU, step2A), (BNNG, step2C), (BGRT, step2E), (JLEQ, step30), (JMP, step32), (JSR, step33), (LD, step3A), (ADD, step3C), (OR, step3E), (ST, ), (INC, ), (STRFIND, )
+step01 => br (case(HALT, RTS, RTI, ROTR, ROTRC, PUSH, POP, BLEQ, BGREU, BNNG, BGRT, JLEQ, JMP, JSR, LD, ADD, OR, ST, INC, STRFIND)) then (HALT, step02), (RTS, step03), (RTI, step09), (ROTR, step18), (ROTRC, step19), (PUSH, step1A), (POP, step20), (BLEQ, step28), (BGREU, step2A), (BNNG, step2C), (BGRT, step2E), (JLEQ, step30), (JMP, step32), (JSR, step33), (LD, step3A), (ADD, step3C), (OR, step3E), (ST, step40), (INC, step47), (STRFIND, step4E)
 ! HALT !
 step02 => clPSWSTART, br step53
 ! RTS !
