@@ -7075,7 +7075,7 @@ a080000000020 9f44000000000 902000 38000000000
       <a name="label" val="brnotINTR"/>
     </comp>
     <comp lib="0" loc="(810,460)" name="Tunnel">
-      <a name="label" val="brprekid"/>
+      <a name="label" val="brnotPrekid"/>
     </comp>
     <comp lib="0" loc="(810,490)" name="Tunnel">
       <a name="label" val="brnotFCBUS"/>
@@ -7112,10 +7112,6 @@ a080000000020 9f44000000000 902000 38000000000
       <a name="facing" val="east"/>
       <a name="label" val="bruncnd"/>
     </comp>
-    <comp lib="0" loc="(840,680)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="brprekid"/>
-    </comp>
     <comp lib="0" loc="(860,150)" name="Splitter">
       <a name="bit0" val="1"/>
       <a name="bit1" val="0"/>
@@ -7140,6 +7136,10 @@ a080000000020 9f44000000000 902000 38000000000
     <comp lib="0" loc="(860,640)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="brnotINTR"/>
+    </comp>
+    <comp lib="0" loc="(870,680)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="brnotPrekid"/>
     </comp>
     <comp lib="0" loc="(870,780)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -7328,9 +7328,9 @@ a080000000020 9f44000000000 902000 38000000000
     <wire from="(830,740)" to="(830,750)"/>
     <wire from="(830,740)" to="(840,740)"/>
     <wire from="(840,610)" to="(920,610)"/>
-    <wire from="(840,680)" to="(910,680)"/>
     <wire from="(860,150)" to="(870,150)"/>
     <wire from="(860,640)" to="(870,640)"/>
+    <wire from="(870,680)" to="(910,680)"/>
     <wire from="(870,780)" to="(880,780)"/>
     <wire from="(890,730)" to="(900,730)"/>
     <wire from="(900,650)" to="(910,650)"/>
