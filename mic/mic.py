@@ -113,7 +113,7 @@ for curr_signals, cc, ba in lines:
     line_bin = ''
     line_bin += format_binary(ba, ba_width)
     line_bin += format_binary(cc, cc_width)
-    for signal in reversed(signals.keys()):
+    for signal in reversed(list(signals.keys())):
         if signal in curr_signals:
             line_bin += '1'
         else:
