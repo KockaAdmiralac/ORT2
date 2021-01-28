@@ -1,19 +1,19 @@
 step00 => br (if notINTR then step00)
 step01 => br (if notPrekid then step13)
 ! Čuvanje PC na steku !
-step02 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR0
+step02 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR1
 step03 => wrMEM, br (if notFCBUS then step03)
-step04 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR1
+step04 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR0
 step05 => wrMEM, br (if notFCBUS then step05)
 ! Čuvanje PSW na steku !
-step06 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR0, mxMDR1
+step06 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR2
 step07 => wrMEM, br (if notFCBUS then step07)
-step08 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR2
+step08 => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR0, mxMDR1
 step09 => wrMEM, br (if notFCBUS then step09)
 ! Čuvanje akumulatora na steku !
-step0A => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR0, mxMDR2
+step0A => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR1, mxMDR2
 step0B => wrMEM, br (if notFCBUS then step0B)
-step0C => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR1, mxMDR2
+step0C => decSP, ldMAR, mxMAR0, mxMAR2, ldMDR, mxMDR0, mxMDR2
 step0D => wrMEM, br (if notFCBUS then step0D)
 ! Učitavanje nove adrese u PC !
 step0E => ldMAR, mxMAR1, mxMAR2

@@ -6,43 +6,43 @@ step02 => clPSWSTART, br step53
 step03 => incSP
 step04 => ldMAR, mxMAR0, mxMAR2, incSP
 step05 => rdMEM, ldMDR, br (if notFCBUS then step05)
-step06 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC1
+step06 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC0
 step07 => rdMEM, ldMDR, br (if notFCBUS then step07)
-step08 => ldPC, mxPC0, br step53
+step08 => ldPC, mxPC1, br step53
 ! RTI !
 step09 => incSP
 step0A => ldMAR, mxMAR0, mxMAR2, incSP
 step0B => rdMEM, ldMDR, br (if notFCBUS then step0B)
-step0C => ldMAR, mxMAR0, mxMAR2, ldB, mxB1, incSP
+step0C => ldMAR, mxMAR0, mxMAR2, ldB, mxB0, incSP
 step0D => rdMEM, ldMDR, br (if notFCBUS then step0D)
-step0E => ldB, mxB0, ldMAR, mxMAR0, mxMAR2, incSP
+step0E => ldB, mxB1, ldMAR, mxMAR0, mxMAR2, incSP
 step0F => ldA
 step10 => rdMEM, ldMDR, br (if notFCBUS then step10)
-step11 => ldPSWMDR, ldPSWC, ldPSWV, ldPSWN, ldPSWZ, ldMAR, mxMAR0, mxMAR2, incSP
+step11 => ldPSWMDR, ldPSWI, ldMAR, mxMAR0, mxMAR2, incSP
 step12 => rdMEM, ldMDR, br (if notFCBUS then step12)
-step13 => ldPSWMDR, ldPSWI, ldMAR, mxMAR0, mxMAR2, incSP
+step13 => ldPSWMDR, ldPSWC, ldPSWV, ldPSWN, ldPSWZ, ldMAR, mxMAR0, mxMAR2, incSP
 step14 => rdMEM, ldMDR, br (if notFCBUS then step14)
-step15 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC1
+step15 => ldMAR, mxMAR0, mxMAR2, ldPC, mxPC0
 step16 => rdMEM, ldMDR, br (if notFCBUS then step16)
-step17 => ldPC, mxPC0, br step53
+step17 => ldPC, mxPC1, br step53
 ! ROTR !
 step18 => ldA, mxA0, mxA1, ldPSWN, ldPSWZ, ldPSWC, mxC1, br step53
 ! ROTRC !
 step19 => ldA, mxA2, ldPSWN, ldPSWZ, ldPSWC, mxC1, br step53
 ! PUSH !
 step1A => ldMAR, mxMAR0, mxMAR2, decSP
-step1B => ldMDR, mxMDR0, mxMDR2
+step1B => ldMDR, mxMDR1, mxMDR2
 step1C => wrMEM, br (if notFCBUS then step1C)
-step1D => ldMAR, mxMAR0, mxMAR2, decSP, ldMDR, mxMDR1, mxMDR2
+step1D => ldMAR, mxMAR0, mxMAR2, decSP, ldMDR, mxMDR0, mxMDR2
 step1E => wrMEM, br (if notFCBUS then step1E)
 step1F => br step53
 ! POP !
 step20 => incSP
 step21 => ldMAR, mxMAR0, mxMAR2, incSP
 step22 => rdMEM, ldMDR, br (if notFCBUS then step22)
-step23 => ldMAR, mxMAR0, mxMAR2, ldB, mxB0
+step23 => ldMAR, mxMAR0, mxMAR2, ldB, mxB1
 step24 => rdMEM, ldMDR, br (if notFCBUS then step24)
-step25 => ldB, mxB1
+step25 => ldB, mxB0
 step26 => ldA
 step27 => ldPSWN, ldPSWZ, br step53
 ! BLEQ !
@@ -64,10 +64,10 @@ step31 => ldPC, mxPC2, br step53
 step32 => ldPC, mxPC2, br step53
 ! JSR !
 step33 => ldMAR, mxMAR0, mxMAR2, decSP
-step34 => ldMDR, mxMDR0
+step34 => ldMDR, mxMDR1
 step35 => wrMEM, br (if notFCBUS then step35)
 step36 => ldMAR, mxMAR0, mxMAR2, decSP
-step37 => ldMDR, mxMDR1
+step37 => ldMDR, mxMDR0
 step38 => wrMEM, br (if notFCBUS then step38)
 step39 => ldPC, mxPC2, br step53
 ! LD !
