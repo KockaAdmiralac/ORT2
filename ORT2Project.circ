@@ -5935,7 +5935,7 @@
       <a name="label" val="decSP"/>
     </comp>
     <comp lib="0" loc="(820,1220)" name="Tunnel">
-      <a name="label" val="mxMDR0"/>
+      <a name="label" val="mxMDR1"/>
     </comp>
     <comp lib="0" loc="(820,1240)" name="Tunnel">
       <a name="label" val="mxMDR2"/>
@@ -5944,7 +5944,7 @@
       <a name="label" val="wrMEM"/>
     </comp>
     <comp lib="0" loc="(820,1280)" name="Tunnel">
-      <a name="label" val="mxMDR1"/>
+      <a name="label" val="mxMDR0"/>
     </comp>
     <comp lib="0" loc="(820,1300)" name="Tunnel">
       <a name="label" val="mxPC2"/>
@@ -5966,9 +5966,6 @@
     </comp>
     <comp lib="0" loc="(820,1420)" name="Tunnel">
       <a name="label" val="decMAR"/>
-    </comp>
-    <comp lib="0" loc="(820,1440)" name="Tunnel">
-      <a name="label" val="mxMDR3"/>
     </comp>
     <comp lib="0" loc="(820,1440)" name="Tunnel">
       <a name="label" val="mxMDR3"/>
@@ -6013,19 +6010,19 @@
       <a name="label" val="ldPC"/>
     </comp>
     <comp lib="0" loc="(820,880)" name="Tunnel">
-      <a name="label" val="mxPC1"/>
+      <a name="label" val="mxPC0"/>
     </comp>
     <comp lib="0" loc="(820,900)" name="Tunnel">
-      <a name="label" val="mxPC0"/>
+      <a name="label" val="mxPC1"/>
     </comp>
     <comp lib="0" loc="(820,920)" name="Tunnel">
       <a name="label" val="ldB"/>
     </comp>
     <comp lib="0" loc="(820,940)" name="Tunnel">
-      <a name="label" val="mxB1"/>
+      <a name="label" val="mxB0"/>
     </comp>
     <comp lib="0" loc="(820,960)" name="Tunnel">
-      <a name="label" val="mxB0"/>
+      <a name="label" val="mxB1"/>
     </comp>
     <comp lib="0" loc="(820,980)" name="Tunnel">
       <a name="label" val="ldA"/>
@@ -6308,7 +6305,7 @@
 14c40000000280 2 1e 2d00000000060 c1e 3500000000060 141e 2000
 4100000000060 c01e 4900000000060 f401e 5100000000060 19c 5900000000060 14c40000000280
 14c400007d2000 14c40000cd2000 100001c 6000040 7100008000000 1500005c 7900008000000 14c40000000000
-2 1e 8900000000060 141c 9100000000060 c00 2000 14c400000c0000
+2 1e 8900000000060 c1c 9100000000060 1400 2000 14c400000c0000
 14d40000000000 14c40000000380 14d80000000000 14c40000000380 14dc0000000000 14c40000000380 14e00000000000 14c40000000380
 14d40000000000 14c40020000080 14c40020000080 100001c 2000040 d500008000000 100001c 10000040
 e100008000000 14c40020000080 2000 14c400000c0000 40132000 14c400000c0000 202000 14c400000c0000

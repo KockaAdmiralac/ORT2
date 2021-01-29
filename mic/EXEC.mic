@@ -40,9 +40,9 @@ step1F => br step53
 step20 => incSP
 step21 => ldMAR, mxMAR0, mxMAR2, incSP
 step22 => rdMEM, ldMDR, br (if notFCBUS then step22)
-step23 => ldMAR, mxMAR0, mxMAR2, ldB, mxB1
+step23 => ldMAR, mxMAR0, mxMAR2, ldB, mxB0
 step24 => rdMEM, ldMDR, br (if notFCBUS then step24)
-step25 => ldB, mxB0
+step25 => ldB, mxB1
 step26 => ldA
 step27 => ldPSWN, ldPSWZ, br step53
 ! BLEQ !
