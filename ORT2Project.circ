@@ -5905,19 +5905,19 @@
       <a name="label" val="ldPSWMDR"/>
     </comp>
     <comp lib="0" loc="(820,1020)" name="Tunnel">
-      <a name="label" val="ldPSWC"/>
+      <a name="label" val="ldPSWI"/>
     </comp>
     <comp lib="0" loc="(820,1040)" name="Tunnel">
-      <a name="label" val="ldPSWV"/>
+      <a name="label" val="ldPSWC"/>
     </comp>
     <comp lib="0" loc="(820,1060)" name="Tunnel">
-      <a name="label" val="ldPSWN"/>
+      <a name="label" val="ldPSWV"/>
     </comp>
     <comp lib="0" loc="(820,1080)" name="Tunnel">
-      <a name="label" val="ldPSWZ"/>
+      <a name="label" val="ldPSWN"/>
     </comp>
     <comp lib="0" loc="(820,1100)" name="Tunnel">
-      <a name="label" val="ldPSWI"/>
+      <a name="label" val="ldPSWZ"/>
     </comp>
     <comp lib="0" loc="(820,1120)" name="Tunnel">
       <a name="label" val="mxA0"/>
@@ -7077,13 +7077,13 @@ e100008000000 14c40020000080 2000 14c400000c0000 40132000 14c400000c0000 202000 
       <a name="label" val="ldMDR"/>
     </comp>
     <comp lib="0" loc="(620,520)" name="Tunnel">
-      <a name="label" val="mxMDR0"/>
+      <a name="label" val="mxMDR1"/>
     </comp>
     <comp lib="0" loc="(620,540)" name="Tunnel">
       <a name="label" val="wrMEM"/>
     </comp>
     <comp lib="0" loc="(620,560)" name="Tunnel">
-      <a name="label" val="mxMDR1"/>
+      <a name="label" val="mxMDR0"/>
     </comp>
     <comp lib="0" loc="(620,580)" name="Tunnel">
       <a name="label" val="mxMDR2"/>
