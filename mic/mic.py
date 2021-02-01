@@ -7,6 +7,7 @@ import re
 parser = ArgumentParser(description='Generator mikrokoda za projekat iz Osnova računarske tehnike.')
 parser.add_argument('mic_file', type=str, help='datoteka sa izvornim mikrokodom')
 parser.add_argument('--binary', help='ispis mikoinstrukcija u binarnim ciframa', action='store_true')
+parser.add_argument('--csv', help='štampa u CSV formatu, za Excel', action='store_true')
 parser.add_argument('--v3hex', help='štampa u v3.0 hex words addressed formatu, za Logisim', action='store_true')
 args = parser.parse_args()
 
@@ -98,10 +99,12 @@ def format_binary(num: int, width: int):
 
 if args.v3hex:
     print('v3.0 hex words addressed\n0000: ', end='')
+elif args.csv:
+    print('ba', 'cc', ','.join(signals.keys()), sep=',')
 else:
     print('================== Instrukcija ======================')
     print('Širina instrukcije:', cc_width + ba_width + len(signals))
-    print(f'Signali [{len(signals) - 1}-0]:')
+    print(f'Signali [0-{len(signals) - 1}]:')
     for i, signal in enumerate(signals.keys()):
         print(f'{i} - {signal}')
     print(f'CC [{len(signals)}-{len(signals)+cc_width - 1}]:')
@@ -113,13 +116,17 @@ else:
 for curr_signals, cc, ba in lines:
     line_bin = ''
     line_bin += format_binary(ba, ba_width)
+    if args.csv:
+        line_bin += ','
     line_bin += format_binary(cc, cc_width)
     for signal in reversed(list(signals.keys())):
+        if args.csv:
+            line_bin += ','
         if signal in curr_signals:
             line_bin += '1'
         else:
             line_bin += '0'
-    if args.binary:
+    if args.binary or args.csv:
         print(line_bin, end=' ')
     else:
         print(hex(int(line_bin, 2)).split('x')[1].upper(), end=' ')
