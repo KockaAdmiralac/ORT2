@@ -101,13 +101,14 @@ if args.v3hex:
 else:
     print('================== Instrukcija ======================')
     print('Širina instrukcije:', cc_width + ba_width + len(signals))
-    print('Signali:')
-    for signal in signals.keys():
-        print(f'- {signal}')
-    print('CC:')
+    print(f'Signali [{len(signals) - 1}-0]:')
+    for i, signal in enumerate(signals.keys()):
+        print(f'{i} - {signal}')
+    print(f'CC [{len(signals)}-{len(signals)+cc_width - 1}]:')
     for index, code in enumerate(cc):
         if index > 0:
             print(f'- {index}: br{code}')
+    print(f'BA [{cc_width + len(signals)}-{cc_width + ba_width + len(signals) - 1}]')
     print('=================== Mikrokod ========================')
 for curr_signals, cc, ba in lines:
     line_bin = ''
